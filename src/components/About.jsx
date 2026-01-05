@@ -138,7 +138,8 @@ const About = () => {
               className="text-2xl font-bold mb-6"
               variants={itemVariants}
             >
-              A Passionate MERN Stack Front-End Developer Based in Bangladesh
+              A Passionate MERN Stack & Next.js Front-End Developer Based in
+              Bangladesh
             </motion.h3>
 
             <motion.div
@@ -152,9 +153,9 @@ const About = () => {
                 I started my programming journey with Programming Hero - a
                 renowned web development course in Bangladesh. Over the past 9
                 months, I completed the Complete Web Development Course where I
-                learned HTML, CSS, JavaScript, React, Node.js, Express.js,
-                MongoDB, and the entire MERN Stack with a strong focus on
-                full stack web development.
+                learned HTML, CSS, JavaScript (ES6+), TypeScript, React,
+                Next.js, Node.js, Express.js, MongoDB, and the entire MERN Stack
+                with a strong focus on full stack web development.
               </motion.p>
 
               <motion.p variants={itemVariants}>
@@ -163,8 +164,9 @@ const About = () => {
                 applications. There&apos;s something magical about seeing your
                 code come to life and knowing that people will use what
                 you&apos;ve created. Through Programming Hero, I specialize in
-                front-end development using React, Tailwind CSS, and DaisyUI,
-                creating beautiful UIs and solving complex UI/UX challenges.
+                front-end development using React, Next.js, TypeScript,
+                JavaScript (ES6+), Tailwind CSS, and DaisyUI, creating beautiful
+                UIs and solving complex UI/UX challenges.
               </motion.p>
 
               <motion.p variants={itemVariants}>

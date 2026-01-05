@@ -9,6 +9,7 @@ import WelcomeScreen from "./components/WelcomeScreen";
 import AnimatedBackground from "./components/AnimatedBackground";
 import { ToastProvider } from "./components/Toast";
 import ScrollToTop from "./components/ScrollToTop";
+import SocialSidebar from "./components/SocialSidebar";
 
 function App() {
   const [showWelcome, setShowWelcome] = useState(true);
@@ -51,6 +52,7 @@ function App() {
         </Routes>
         <Footer />
         <ScrollToTop />
+        <SocialSidebar />
       </div>
     </ToastProvider>
   );

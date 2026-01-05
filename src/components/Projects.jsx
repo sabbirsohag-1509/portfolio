@@ -2,48 +2,88 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt, FaArrowRight } from "react-icons/fa";
+import scholarshipImg from "../assets/scholarship.jpg";
+import homeNestImg from "../assets/homeNest.PNG";
+import portfolioImg from "../assets/portfolio.PNG";
+import dragonNewsImg from "../assets/the-dragon-news.PNG";
 
 const Projects = () => {
   const projects = [
     {
       id: 1,
-      name: "E-Commerce Website",
-      image: "https://via.placeholder.com/600x400?text=E-Commerce+Project",
+      name: "ScholarStream",
+      image: scholarshipImg,
       shortDescription:
-        "A full-featured e-commerce platform with cart, checkout, and payment integration.",
-      techStack: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
-      liveLink: "https://your-ecommerce-site.com",
-      githubLink: "https://github.com/yourusername/ecommerce-project",
+        "A comprehensive scholarship management platform with multi-role system (Student, Moderator, Admin) featuring secure authentication, Stripe payments, and analytics dashboard.",
+      techStack: [
+        "React",
+        "Node.js",
+        "MongoDB",
+        "Express.js",
+        "Tailwind CSS",
+        "JWT",
+        "Stripe",
+        "Firebase Auth",
+      ],
+      liveLink: "https://sparkling-sable-55715c.netlify.app",
+      githubLink: "https://github.com/sabbirsohag-1509/assignment-11-client",
     },
     {
       id: 2,
-      name: "Task Management App",
-      image: "https://via.placeholder.com/600x400?text=Task+Management+App",
+      name: "HomeNest",
+      image: homeNestImg,
       shortDescription:
-        "A productivity app to manage tasks, set deadlines, and track progress.",
-      techStack: ["React", "Firebase", "DaisyUI", "Context API"],
-      liveLink: "https://your-task-app.com",
-      githubLink: "https://github.com/yourusername/task-manager",
+        "A real estate management platform with role-based dashboards (Buyer, Seller, Admin), Stripe payment integration, and comprehensive property listing system.",
+      techStack: [
+        "React",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Tailwind CSS",
+        "DaisyUI",
+        "JWT",
+        "Stripe",
+      ],
+      liveLink: "https://whimsical-marigold-942cbe.netlify.app",
+      githubLink:
+        "https://github.com/sabbirsohag-1509/assignment-10-client-site",
     },
     {
       id: 3,
-      name: "Portfolio Website",
-      image: "https://via.placeholder.com/600x400?text=Portfolio+Website",
+      name: "Personal Portfolio",
+      image: portfolioImg,
       shortDescription:
-        "A personal portfolio website showcasing my projects and skills.",
-      techStack: ["React", "Tailwind CSS", "DaisyUI", "Vite"],
-      liveLink: "https://your-portfolio.com",
-      githubLink: "https://github.com/yourusername/portfolio",
+        "A modern, responsive portfolio website with smooth animations, interactive components, and professional design to showcase my skills and projects.",
+      techStack: [
+        "React",
+        "Tailwind CSS",
+        "DaisyUI",
+        "Framer Motion",
+        "Lenis",
+        "Vite",
+        "React Router",
+      ],
+      liveLink: "https://portfolio-sabbir-sohag-f956ef.netlify.app",
+      githubLink: "https://github.com/sabbirsohag-1509/portfolio",
     },
     {
       id: 4,
-      name: "Blog Platform",
-      image: "https://via.placeholder.com/600x400?text=Blog+Platform",
+      name: "The Dragon News",
+      image: dragonNewsImg,
       shortDescription:
-        "A blog platform with user authentication, CRUD operations, and comments.",
-      techStack: ["Next.js", "MongoDB", "Tailwind CSS", "NextAuth"],
-      liveLink: "https://your-blog-platform.com",
-      githubLink: "https://github.com/yourusername/blog-platform",
+        "An online newspaper platform with live news reading, category browsing, breaking news marquee, and secure Firebase authentication with JWT protected routes.",
+      techStack: [
+        "React",
+        "Tailwind CSS",
+        "DaisyUI",
+        "Firebase",
+        "JWT",
+        "React Router",
+        "date-fns",
+      ],
+      liveLink: "https://elaborate-unicorn-82d342.netlify.app/category/0",
+      githubLink:
+        "https://github.com/sabbirsohag-1509/module-50-51-firebase-dragon-news",
     },
   ];
 

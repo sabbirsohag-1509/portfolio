@@ -161,7 +161,8 @@ const Hero = () => {
             >
               Passionate MERN Stack Front-End Developer with 9 months of
               experience in building beautiful, responsive, and user-friendly
-              web applications using React, Tailwind CSS, and modern JavaScript.
+              web applications using React, Next.js, TypeScript, JavaScript
+              (ES6+), Tailwind CSS, and modern web technologies.
             </motion.p>
 
             {/* Resume Download Button */}
@@ -221,28 +222,76 @@ const Hero = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <div className="relative" ref={imageRef}>
+              {/* Wave Border Ring */}
               <motion.div
-                className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-primary shadow-2xl"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
+                className="absolute inset-0 -m-5 md:-m-7 rounded-full"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+                style={{
+                  background:
+                    "conic-gradient(from 0deg, #a855f7, #ec4899, #22d3ee, #a855f7)",
+                  padding: "3px",
+                  WebkitMask:
+                    "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                  WebkitMaskComposite: "xor",
+                  maskComposite: "exclude",
+                }}
               >
-                <img
-                  src={sabbirImage}
-                  alt="Sabbir Hossain Sohag"
-                  className="w-full h-full object-cover"
-                />
+                <div className="w-full h-full rounded-full bg-slate-950" />
               </motion.div>
-              {/* Decorative elements */}
+
+              {/* Soft Glow Background */}
               <motion.div
-                className="absolute -top-4 -right-4 w-24 h-24 bg-primary/20 rounded-full blur-xl"
-                animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
-                transition={{ duration: 3, repeat: Infinity }}
+                className="absolute -top-6 -right-6 w-28 h-28 bg-purple-500/15 rounded-full blur-2xl"
+                animate={{
+                  scale: [1, 1.2, 1],
+                  opacity: [0.2, 0.4, 0.2],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
               />
               <motion.div
-                className="absolute -bottom-4 -left-4 w-32 h-32 bg-secondary/20 rounded-full blur-xl"
-                animate={{ scale: [1, 1.3, 1], opacity: [0.5, 0.7, 0.5] }}
-                transition={{ duration: 4, repeat: Infinity }}
+                className="absolute -bottom-6 -left-6 w-28 h-28 bg-pink-500/15 rounded-full blur-2xl"
+                animate={{
+                  scale: [1, 1.2, 1],
+                  opacity: [0.2, 0.4, 0.2],
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.5,
+                }}
               />
+
+              {/* Main Image Container with Gradient Border */}
+              <motion.div
+                className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full p-1 bg-gradient-to-br from-purple-500 via-pink-500 to-cyan-500"
+                animate={{
+                  boxShadow: [
+                    "0 0 15px rgba(168, 85, 247, 0.3)",
+                    "0 0 25px rgba(236, 72, 153, 0.3)",
+                    "0 0 15px rgba(168, 85, 247, 0.3)",
+                  ],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                whileHover={{ scale: 1.03 }}
+              >
+                <div className="w-full h-full rounded-full overflow-hidden bg-slate-900">
+                  <img
+                    src={sabbirImage}
+                    alt="Sabbir Hossain Sohag"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </motion.div>
             </div>
           </motion.div>
         </div>

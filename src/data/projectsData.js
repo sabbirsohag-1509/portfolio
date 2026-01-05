@@ -1,131 +1,239 @@
 // Projects data for use across the application
+import scholarshipImg from "../assets/scholarship.jpg";
+import homeNestImg from "../assets/homeNest.PNG";
+import portfolioImg from "../assets/portfolio.PNG";
+import dragonNewsImg from "../assets/the-dragon-news.PNG";
+
 export const projectsData = [
   {
     id: 1,
-    name: "E-Commerce Website",
-    image: "https://via.placeholder.com/800x500?text=E-Commerce+Project",
+    name: "ScholarStream",
+    image: scholarshipImg,
     shortDescription:
-      "A full-featured e-commerce platform with cart, checkout, and payment integration.",
-    fullDescription: `This is a comprehensive e-commerce platform built from scratch. It features a complete shopping experience including product browsing, cart management, user authentication, and secure checkout with payment integration.
-    
-The platform includes an admin dashboard for managing products, orders, and users. It's built with scalability in mind and follows best practices for security and performance.`,
+      "A comprehensive scholarship management platform with multi-role system (Student, Moderator, Admin) featuring secure authentication, Stripe payments, and analytics dashboard.",
+    fullDescription: `ScholarStream is a comprehensive scholarship management platform designed to streamline the application, review, and approval process for students, moderators, and administrators.
+
+The platform enables students to easily discover and apply for scholarships, allows moderators to review applications efficiently, and gives administrators full control over scholarships and user management. ScholarStream improves transparency, reduces manual paperwork, and ensures a smooth workflow for all stakeholders.
+
+**Key Features:**
+• Multi-role system: Student, Moderator, Admin with role-based access control
+• Student Dashboard: Search, filter, and apply for scholarships with ease
+• Moderator Dashboard: Review and provide feedback on applications
+• Admin Dashboard: Manage scholarships, users, and application status
+• Secure Authentication: Email/Password + Google Social Login via Firebase
+• Payment Integration: Stripe for secure application fee payments
+• Charts & Analytics: Admin dashboard displays comprehensive statistics
+• Fully responsive UI optimized for desktop, tablet, and mobile devices`,
     techStack: [
       "React",
       "Node.js",
       "Express.js",
       "MongoDB",
       "Tailwind CSS",
-      "Stripe",
+      "Firebase Auth",
       "JWT",
+      "Stripe",
     ],
-    liveLink: "https://your-ecommerce-site.com",
-    githubLink: "https://github.com/yourusername/ecommerce-project",
+    liveLink: "https://sparkling-sable-55715c.netlify.app",
+    githubLink: "https://github.com/sabbirsohag-1509/assignment-11-client",
     challenges: [
-      "Implementing secure payment processing with Stripe",
-      "Managing complex state across multiple components",
-      "Optimizing database queries for large product catalogs",
-      "Ensuring responsive design across all devices",
+      "Implementing multi-role authentication and authorization system",
+      "Integrating Stripe payment gateway for secure transactions",
+      "Building complex filtering and search functionality for scholarships",
+      "Creating role-specific dashboards with different access levels",
+      "Managing application workflow states across multiple user roles",
     ],
     futureImprovements: [
-      "Add product recommendations using machine learning",
-      "Implement real-time inventory management",
-      "Add multiple payment gateway options",
-      "Create a mobile app version",
+      "Add email notifications for application status updates",
+      "Implement document verification system",
+      "Add scholarship recommendation engine",
+      "Create mobile app for better accessibility",
+      "Add real-time chat support for students",
     ],
   },
   {
     id: 2,
-    name: "Task Management App",
-    image: "https://via.placeholder.com/800x500?text=Task+Management+App",
+    name: "HomeNest",
+    image: homeNestImg,
     shortDescription:
-      "A productivity app to manage tasks, set deadlines, and track progress.",
-    fullDescription: `A feature-rich task management application designed to boost productivity. Users can create, organize, and track their tasks with ease. The app includes features like drag-and-drop task organization, deadline reminders, and progress tracking.
-    
-The application uses Firebase for real-time data synchronization, ensuring that changes are reflected instantly across all devices.`,
+      "A real estate management platform with role-based dashboards (Buyer, Seller, Admin), Stripe payment integration, and comprehensive property listing system.",
+    fullDescription: `HomeNest is a real estate management platform built to streamline property listing, browsing, and management for buyers, sellers, and administrators. I implemented the full MERN stack solution, including role-based dashboards, secure authentication, property management, and payment workflow.
+
+**User Roles:**
+• Buyer: Browse, search, filter, and view property listings
+• Seller: Add, update, and manage property listings
+• Admin: Full control over user accounts and property approvals
+
+**Authentication:**
+• Email/password login with JWT-based session management
+• Google social login integration via Firebase
+
+**Property Listings:**
+• Add, update, and delete properties (Seller/Admin)
+• Search and filter by type, price, and location (Buyer)
+• Responsive cards with images, title, and description
+
+**Payment Integration:**
+• Stripe Checkout for booking or premium listings
+• Webhook-based payment confirmation and status tracking
+
+**Frontend Features:**
+• Built with React functional components + Hooks
+• Styled with Tailwind CSS + DaisyUI
+• Fully responsive layout (desktop, tablet, mobile)
+
+**Backend Features:**
+• Node.js + Express.js REST API
+• MongoDB database for users, properties, and transactions
+• Secure routes with JWT & role-based access
+
+**Additional Functionalities:**
+• Server-side pagination, search, and filtering
+• Success/error notifications (toast messages)
+• Detailed property view page with images and booking option`,
     techStack: [
       "React",
-      "Firebase",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Tailwind CSS",
       "DaisyUI",
-      "Context API",
-      "React Beautiful DnD",
+      "JWT",
+      "Stripe",
+      "Firebase Auth",
+      "React Router",
     ],
-    liveLink: "https://your-task-app.com",
-    githubLink: "https://github.com/yourusername/task-manager",
+    liveLink: "https://whimsical-marigold-942cbe.netlify.app",
+    githubLink: "https://github.com/sabbirsohag-1509/assignment-10-client-site",
     challenges: [
-      "Implementing drag-and-drop functionality",
-      "Managing real-time data synchronization",
-      "Creating an intuitive user interface",
-      "Handling offline mode and data conflicts",
+      "Role-based dashboard implementation for buyers, sellers, and admins",
+      "Stripe payment integration and webhook handling",
+      "Handling search, filter, and pagination efficiently",
+      "Making the frontend fully responsive across all devices",
+      "Managing complex state with multiple user roles",
     ],
     futureImprovements: [
-      "Add team collaboration features",
-      "Implement calendar integration",
-      "Add time tracking functionality",
-      "Create browser extension for quick task creation",
+      "Add real-time chat between buyer and seller",
+      "Implement property image carousel & zoom",
+      "Add notification system for property updates",
+      "Implement wishlist/favorites feature",
+      "Add map integration for property locations",
     ],
   },
   {
     id: 3,
-    name: "Portfolio Website",
-    image: "https://via.placeholder.com/800x500?text=Portfolio+Website",
+    name: "Personal Portfolio",
+    image: portfolioImg,
     shortDescription:
-      "A personal portfolio website showcasing my projects and skills.",
-    fullDescription: `This portfolio website serves as a showcase of my skills, projects, and professional journey. It's designed to be visually appealing, responsive, and easy to navigate.
-    
-The site features smooth animations, a clean design, and optimized performance. It's built using modern web technologies and follows best practices for accessibility and SEO.`,
+      "A modern, responsive portfolio website with smooth animations, interactive components, and professional design to showcase my skills and projects.",
+    fullDescription: `This is my personal portfolio website designed to showcase my skills, projects, and experience as a web developer. The website features a modern, responsive, and professional design with smooth animations, interactive components, and user-friendly navigation. It allows visitors to easily explore my work, learn about my experience, and contact me directly.
+
+**Key Features Implemented:**
+• Fully responsive navigation bar with smooth scrolling
+• Hero section with professional designation and image
+• Animated "Welcome" screen with cinematic effects
+• Resume download button with toast notification
+• Social media links (GitHub, LinkedIn, Twitter, Facebook)
+• About Me section describing skills, journey, and hobbies
+• Skills section with visual skill charts
+• Education and experience timeline sections
+• Projects section with detailed project cards
+• Contact form with email, phone, and WhatsApp integration
+• Animated gradient background with glow effects
+• Scroll to top button
+• Clean and consistent footer
+• Smooth scrolling effects using Lenis
+
+**Frontend Technologies:**
+• React (functional components + Hooks)
+• Tailwind CSS + DaisyUI for styling
+• Framer Motion for animations and page transitions
+• GSAP for advanced animations
+• Lenis for smooth scroll enhancement
+• React Router v7+ for navigation
+• Vite for fast development and build`,
     techStack: [
       "React",
       "Tailwind CSS",
       "DaisyUI",
+      "Framer Motion",
+      "GSAP",
+      "Lenis",
       "Vite",
       "React Router",
       "React Icons",
     ],
-    liveLink: "https://your-portfolio.com",
-    githubLink: "https://github.com/yourusername/portfolio",
+    liveLink: "https://portfolio-sabbir-sohag-f956ef.netlify.app",
+    githubLink: "https://github.com/sabbirsohag-1509/portfolio",
     challenges: [
-      "Creating a unique and memorable design",
+      "Creating smooth and performant animations with Framer Motion",
+      "Implementing responsive design across all devices",
       "Optimizing images and assets for fast loading",
-      "Implementing smooth scroll and animations",
-      "Ensuring accessibility compliance",
+      "Building cinematic welcome screen with proper timing",
+      "Managing smooth scroll with Lenis library",
     ],
     futureImprovements: [
-      "Add a blog section",
+      "Add a blog section for technical articles",
       "Implement dark/light theme toggle",
-      "Add more interactive elements",
+      "Add more interactive 3D elements",
       "Integrate a CMS for easy content updates",
+      "Add multilingual support",
     ],
   },
   {
     id: 4,
-    name: "Blog Platform",
-    image: "https://via.placeholder.com/800x500?text=Blog+Platform",
+    name: "The Dragon News",
+    image: dragonNewsImg,
     shortDescription:
-      "A blog platform with user authentication, CRUD operations, and comments.",
-    fullDescription: `A full-featured blog platform where users can create, read, update, and delete blog posts. The platform includes user authentication, rich text editing, and a comment system.
-    
-Built with Next.js for optimal performance and SEO, the platform features server-side rendering and static generation for fast page loads.`,
+      "An online newspaper platform with live news reading, category browsing, breaking news marquee, and secure Firebase authentication with JWT protected routes.",
+    fullDescription: `The Dragon News is an online newspaper platform that allows users to read live and latest news articles with a smooth and engaging experience. Users can easily browse news by categories for quick navigation. The platform emphasizes security, responsiveness, and clean design, providing a professional online reading experience.
+
+**Implemented Features:**
+
+• **Live News Reading:** Users can access up-to-date news articles instantly
+• **Category Browsing:** Filter and navigate news by categories for easier access
+• **Secure Authentication:** Firebase authentication with JWT-based protected routes for authorized users
+• **Breaking News Section:** Smooth marquee animation to display trending news
+• **Responsive UI:** Built with Tailwind CSS and DaisyUI for a polished interface
+• **Icon-based Interface:** Used React Icons for buttons, categories, and actions
+• **Date & Time Formatting:** News timestamps formatted using date-fns
+
+**Frontend Technologies:**
+• React (functional components + Hooks)
+• Tailwind CSS + DaisyUI for styling
+• React Icons for interface elements
+• Marquee effect for Breaking News section
+• date-fns for date handling
+• React Router v7+ for navigation
+
+**Security Features:**
+• Firebase Authentication
+• JWT-based protected routes
+• Role-based access control`,
     techStack: [
-      "Next.js",
-      "MongoDB",
+      "React",
       "Tailwind CSS",
-      "NextAuth",
-      "Cloudinary",
-      "React Quill",
+      "DaisyUI",
+      "Firebase",
+      "JWT",
+      "React Router",
+      "React Icons",
+      "date-fns",
     ],
-    liveLink: "https://your-blog-platform.com",
-    githubLink: "https://github.com/yourusername/blog-platform",
+    liveLink: "https://elaborate-unicorn-82d342.netlify.app/category/0",
+    githubLink:
+      "https://github.com/sabbirsohag-1509/module-50-51-firebase-dragon-news",
     challenges: [
-      "Implementing rich text editing with image uploads",
-      "Managing authentication and authorization",
-      "Optimizing for SEO and performance",
-      "Creating a responsive reading experience",
+      "Implementing secure authentication and JWT-based route protection",
+      "Displaying live breaking news dynamically with smooth animations",
+      "Ensuring a fully responsive UI across desktop, tablet, and mobile devices",
+      "Managing category filtering and proper date formatting for news",
     ],
     futureImprovements: [
-      "Add social media sharing",
-      "Implement newsletter subscription",
-      "Add analytics dashboard for authors",
-      "Create mobile app with React Native",
+      "Add bookmark / favorite articles feature for users",
+      "Implement real-time notifications for breaking news",
+      "Integrate external news APIs for automated content updates",
+      "Add dark/light mode toggle for better readability",
     ],
   },
 ];
