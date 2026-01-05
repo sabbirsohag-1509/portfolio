@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt, FaArrowRight } from "react-icons/fa";
+import { useTheme } from "../context/ThemeContext";
 import scholarshipImg from "../assets/scholarship.jpg";
 import homeNestImg from "../assets/homeNest.PNG";
 import portfolioImg from "../assets/portfolio.PNG";
@@ -89,6 +90,7 @@ const Projects = () => {
 
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  const { theme } = useTheme();
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -116,14 +118,24 @@ const Projects = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">My Projects</h2>
+          <h2
+            className={`text-3xl md:text-4xl font-bold mb-4 ${
+              theme === "dark" ? "text-white" : "text-slate-800"
+            }`}
+          >
+            My Projects
+          </h2>
           <motion.div
             className="w-24 h-1 bg-primary mx-auto rounded-full"
             initial={{ width: 0 }}
             animate={isInView ? { width: 96 } : {}}
             transition={{ duration: 0.8, delay: 0.3 }}
           />
-          <p className="mt-4 text-base-content/70 max-w-2xl mx-auto">
+          <p
+            className={`mt-4 max-w-2xl mx-auto ${
+              theme === "dark" ? "text-gray-400" : "text-slate-600"
+            }`}
+          >
             Here are some of my recent projects that showcase my skills and
             experience
           </p>
@@ -138,7 +150,11 @@ const Projects = () => {
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
-              className="card bg-slate-800/50 backdrop-blur-sm shadow-xl group border border-slate-700/30"
+              className={`card backdrop-blur-sm shadow-xl group border ${
+                theme === "dark"
+                  ? "bg-slate-800/50 border-slate-700/30"
+                  : "bg-white border-gray-200 shadow-md"
+              }`}
               variants={cardVariants}
               whileHover={{ y: -10, scale: 1.02 }}
               transition={{ duration: 0.3 }}
@@ -183,8 +199,18 @@ const Projects = () => {
               </figure>
 
               <div className="card-body">
-                <h3 className="card-title text-xl">{project.name}</h3>
-                <p className="text-base-content/70 text-sm">
+                <h3
+                  className={`card-title text-xl ${
+                    theme === "dark" ? "text-white" : "text-slate-800"
+                  }`}
+                >
+                  {project.name}
+                </h3>
+                <p
+                  className={`text-sm ${
+                    theme === "dark" ? "text-gray-400" : "text-slate-600"
+                  }`}
+                >
                   {project.shortDescription}
                 </p>
 

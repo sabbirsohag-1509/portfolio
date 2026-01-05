@@ -9,6 +9,7 @@ import {
   FaDownload,
 } from "react-icons/fa";
 import { useToast } from "./Toast";
+import { useTheme } from "../context/ThemeContext";
 import sabbirImage from "../assets/sabbir-image.jpg";
 
 const Hero = () => {
@@ -18,6 +19,7 @@ const Hero = () => {
   const [typingSpeed, setTypingSpeed] = useState(150);
   const imageRef = useRef(null);
   const toast = useToast();
+  const { theme } = useTheme();
 
   const handleDownloadResume = () => {
     toast.success("🎉 Resume download started! Thank you for your interest!");
@@ -156,7 +158,9 @@ const Hero = () => {
               <span className="animate-pulse">|</span>
             </motion.h2>
             <motion.p
-              className="text-base-content/70 text-lg mb-8 max-w-xl"
+              className={`text-lg mb-8 max-w-xl ${
+                theme === "dark" ? "text-gray-300" : "text-slate-600"
+              }`}
               variants={itemVariants}
             >
               Passionate MERN Stack Front-End Developer with 9 months of

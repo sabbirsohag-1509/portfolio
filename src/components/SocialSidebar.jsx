@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaWhatsapp, FaEnvelope } from "react-icons/fa";
+import { useTheme } from "../context/ThemeContext";
 
 const SocialSidebar = () => {
+  const { theme } = useTheme();
+
   const socialLinks = [
     {
       icon: FaGithub,
@@ -75,7 +78,11 @@ const SocialSidebar = () => {
             href={social.url}
             target="_blank"
             rel="noopener noreferrer"
-            className={`group relative w-11 h-11 rounded-full bg-slate-800/80 border border-slate-700/50 flex items-center justify-center text-gray-400 ${social.color} transition-all duration-300 hover:border-transparent hover:shadow-lg ${social.bgColor}`}
+            className={`group relative w-11 h-11 rounded-full flex items-center justify-center transition-all duration-300 hover:border-transparent hover:shadow-lg ${
+              theme === "dark"
+                ? "bg-slate-800/80 border border-slate-700/50 text-gray-400"
+                : "bg-white border border-gray-200 text-slate-600 shadow-md"
+            } ${social.color} ${social.bgColor}`}
             aria-label={social.label}
             variants={itemVariants}
             whileHover={{
@@ -89,12 +96,20 @@ const SocialSidebar = () => {
 
             {/* Tooltip */}
             <motion.span
-              className="absolute left-14 px-3 py-1.5 bg-slate-800 text-white text-sm rounded-md whitespace-nowrap opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-slate-700/50"
+              className={`absolute left-14 px-3 py-1.5 text-sm rounded-md whitespace-nowrap opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border ${
+                theme === "dark"
+                  ? "bg-slate-800 text-white border-slate-700/50"
+                  : "bg-white text-slate-800 border-gray-200 shadow-lg"
+              }`}
               initial={{ x: -10 }}
               whileHover={{ x: 0 }}
             >
               {social.label}
-              <span className="absolute left-0 top-1/2 -translate-x-1 -translate-y-1/2 border-4 border-transparent border-r-slate-800"></span>
+              <span
+                className={`absolute left-0 top-1/2 -translate-x-1 -translate-y-1/2 border-4 border-transparent ${
+                  theme === "dark" ? "border-r-slate-800" : "border-r-white"
+                }`}
+              ></span>
             </motion.span>
 
             {/* Glow Ring */}
@@ -125,30 +140,34 @@ const SocialSidebar = () => {
         />
       </motion.div>
 
-      {/* Mobile Bottom Bar */}
-      <motion.div
-        className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-slate-900/95 backdrop-blur-md border-t border-slate-800/50 py-3 px-4"
-        initial={{ y: 100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.5, delay: 0.3 }}
+      {/* Mobile Bottom Bar - Optimized for performance */}
+      <div
+        className={`fixed bottom-0 left-0 right-0 z-40 md:hidden py-3 px-4 ${
+          theme === "dark"
+            ? "bg-slate-900/98 border-t border-slate-800/50"
+            : "bg-white/98 border-t border-gray-200"
+        }`}
+        style={{ willChange: "auto" }}
       >
         <div className="flex justify-center items-center gap-6">
           {socialLinks.map((social) => (
-            <motion.a
+            <a
               key={social.label}
               href={social.url}
               target="_blank"
               rel="noopener noreferrer"
-              className={`w-12 h-12 rounded-full bg-slate-800/80 border border-slate-700/50 flex items-center justify-center text-gray-400 ${social.color} transition-all duration-300`}
+              className={`w-11 h-11 rounded-full flex items-center justify-center transition-colors duration-200 active:scale-95 ${
+                theme === "dark"
+                  ? "bg-slate-800 border border-slate-700/50 text-gray-400"
+                  : "bg-gray-100 border border-gray-200 text-slate-600"
+              } ${social.color}`}
               aria-label={social.label}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
             >
-              <social.icon className="text-xl" />
-            </motion.a>
+              <social.icon className="text-lg" />
+            </a>
           ))}
         </div>
-      </motion.div>
+      </div>
     </>
   );
 };

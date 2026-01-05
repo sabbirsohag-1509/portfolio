@@ -1,10 +1,12 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { FaGraduationCap, FaUniversity, FaSchool } from "react-icons/fa";
+import { useTheme } from "../context/ThemeContext";
 
 const Education = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  const { theme } = useTheme();
 
   const educationData = [
     {
@@ -78,14 +80,24 @@ const Education = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Education</h2>
+          <h2
+            className={`text-3xl md:text-4xl font-bold mb-4 ${
+              theme === "dark" ? "text-white" : "text-slate-800"
+            }`}
+          >
+            Education
+          </h2>
           <motion.div
             className="w-24 h-1 bg-primary mx-auto rounded-full"
             initial={{ width: 0 }}
             animate={isInView ? { width: 96 } : {}}
             transition={{ duration: 0.8, delay: 0.3 }}
           />
-          <p className="mt-4 text-base-content/70 max-w-2xl mx-auto">
+          <p
+            className={`mt-4 max-w-2xl mx-auto ${
+              theme === "dark" ? "text-gray-400" : "text-slate-600"
+            }`}
+          >
             My educational journey and academic achievements
           </p>
         </motion.div>
@@ -131,9 +143,11 @@ const Education = () => {
                   }`}
                 >
                   <motion.div
-                    className={`bg-slate-800/50 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-slate-700/30 ${
-                      edu.current ? "border-2 border-primary" : ""
-                    }`}
+                    className={`backdrop-blur-sm p-6 rounded-2xl shadow-lg border ${
+                      theme === "dark"
+                        ? "bg-slate-800/50 border-slate-700/30"
+                        : "bg-white border-gray-200 shadow-md"
+                    } ${edu.current ? "border-2 border-primary" : ""}`}
                     whileHover={{
                       scale: 1.02,
                       boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
@@ -144,14 +158,30 @@ const Education = () => {
                         Currently Pursuing
                       </span>
                     )}
-                    <h3 className="text-xl font-bold mb-2">{edu.degree}</h3>
+                    <h3
+                      className={`text-xl font-bold mb-2 ${
+                        theme === "dark" ? "text-white" : "text-slate-800"
+                      }`}
+                    >
+                      {edu.degree}
+                    </h3>
                     <h4 className="text-primary font-semibold mb-1">
                       {edu.institution}
                     </h4>
-                    <p className="text-sm text-base-content/60 mb-3">
+                    <p
+                      className={`text-sm mb-3 ${
+                        theme === "dark" ? "text-gray-400" : "text-slate-500"
+                      }`}
+                    >
                       {edu.location} {edu.duration && `| ${edu.duration}`}
                     </p>
-                    <p className="text-base-content/70">{edu.description}</p>
+                    <p
+                      className={`${
+                        theme === "dark" ? "text-gray-300" : "text-slate-600"
+                      }`}
+                    >
+                      {edu.description}
+                    </p>
                   </motion.div>
                 </div>
               </motion.div>

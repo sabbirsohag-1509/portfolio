@@ -9,10 +9,12 @@ import {
   FaPhone,
   FaMapMarkerAlt,
 } from "react-icons/fa";
+import { useTheme } from "../context/ThemeContext";
 import logoShs from "../assets/logo-shs.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { theme } = useTheme();
 
   const socialLinks = [
     {
@@ -63,24 +65,34 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative bg-gradient-to-b from-slate-900/90 to-slate-950 backdrop-blur-md border-t border-purple-500/20 overflow-hidden">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <footer
+      className={`relative border-t overflow-hidden ${
+        theme === "dark"
+          ? "bg-gradient-to-b from-slate-900/90 to-slate-950 border-purple-500/20"
+          : "bg-gradient-to-b from-gray-100 to-white border-gray-200"
+      }`}
+    >
+      {/* Animated Background Elements - Hidden on mobile for performance */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none hidden md:block">
         <motion.div
-          className="absolute -top-20 -left-20 w-60 h-60 bg-purple-500/10 rounded-full blur-3xl"
+          className={`absolute -top-20 -left-20 w-60 h-60 rounded-full blur-2xl ${
+            theme === "dark" ? "bg-purple-500/10" : "bg-purple-500/5"
+          }`}
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.3, 0.5, 0.3],
           }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
-          className="absolute -bottom-20 -right-20 w-60 h-60 bg-pink-500/10 rounded-full blur-3xl"
+          className={`absolute -bottom-20 -right-20 w-60 h-60 rounded-full blur-2xl ${
+            theme === "dark" ? "bg-pink-500/10" : "bg-pink-500/5"
+          }`}
           animate={{
             scale: [1.2, 1, 1.2],
             opacity: [0.3, 0.5, 0.3],
           }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         />
       </div>
 
@@ -114,10 +126,20 @@ const Footer = () => {
                 <h3 className="text-xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-cyan-400 bg-clip-text text-transparent">
                   Sabbir Hossain Sohag
                 </h3>
-                <p className="text-sm text-gray-400">MERN Stack Developer</p>
+                <p
+                  className={`text-sm ${
+                    theme === "dark" ? "text-gray-400" : "text-slate-600"
+                  }`}
+                >
+                  MERN Stack Developer
+                </p>
               </div>
             </div>
-            <p className="text-base-content/70 mb-5 text-sm leading-relaxed">
+            <p
+              className={`mb-5 text-sm leading-relaxed ${
+                theme === "dark" ? "text-gray-400" : "text-slate-600"
+              }`}
+            >
               A passionate Full Stack Developer from Dinajpur, Bangladesh.
               Let&apos;s build something amazing together!
             </p>
@@ -129,7 +151,11 @@ const Footer = () => {
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`w-10 h-10 rounded-full bg-slate-800/80 border border-slate-700/50 flex items-center justify-center text-gray-400 ${social.color} transition-all duration-300 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/20`}
+                  className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20 ${
+                    theme === "dark"
+                      ? "bg-slate-800/80 border border-slate-700/50 text-gray-400 hover:border-purple-500/50"
+                      : "bg-gray-100 border border-gray-200 text-slate-600 hover:border-purple-400"
+                  } ${social.color}`}
                   aria-label={social.label}
                   whileHover={{ scale: 1.15, y: -3 }}
                   whileTap={{ scale: 0.95 }}
@@ -145,7 +171,11 @@ const Footer = () => {
 
           {/* Quick Links */}
           <motion.div variants={itemVariants}>
-            <h4 className="text-lg font-semibold mb-5 flex items-center gap-2">
+            <h4
+              className={`text-lg font-semibold mb-5 flex items-center gap-2 ${
+                theme === "dark" ? "text-white" : "text-slate-800"
+              }`}
+            >
               <span className="w-8 h-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"></span>
               Quick Links
             </h4>
@@ -160,7 +190,9 @@ const Footer = () => {
                 >
                   <motion.a
                     href={link.href}
-                    className="text-base-content/70 hover:text-purple-400 transition-all duration-300 flex items-center gap-2 group"
+                    className={`hover:text-purple-400 transition-all duration-300 flex items-center gap-2 group ${
+                      theme === "dark" ? "text-gray-400" : "text-slate-600"
+                    }`}
                     whileHover={{ x: 5 }}
                   >
                     <span className="w-2 h-2 rounded-full bg-purple-500/50 group-hover:bg-purple-400 transition-colors"></span>
@@ -173,34 +205,62 @@ const Footer = () => {
 
           {/* Contact Info */}
           <motion.div variants={itemVariants}>
-            <h4 className="text-lg font-semibold mb-5 flex items-center gap-2">
+            <h4
+              className={`text-lg font-semibold mb-5 flex items-center gap-2 ${
+                theme === "dark" ? "text-white" : "text-slate-800"
+              }`}
+            >
               <span className="w-8 h-1 bg-gradient-to-r from-pink-500 to-cyan-500 rounded-full"></span>
               Contact Info
             </h4>
             <ul className="space-y-4">
               <motion.li
-                className="flex items-center gap-3 text-base-content/70 group"
+                className={`flex items-center gap-3 group ${
+                  theme === "dark" ? "text-gray-400" : "text-slate-600"
+                }`}
                 whileHover={{ x: 5 }}
               >
-                <span className="w-9 h-9 rounded-lg bg-slate-800/80 border border-slate-700/50 flex items-center justify-center text-purple-400 group-hover:border-purple-500/50 transition-all">
+                <span
+                  className={`w-9 h-9 rounded-lg flex items-center justify-center text-purple-400 transition-all ${
+                    theme === "dark"
+                      ? "bg-slate-800/80 border border-slate-700/50 group-hover:border-purple-500/50"
+                      : "bg-gray-100 border border-gray-200 group-hover:border-purple-400"
+                  }`}
+                >
                   <FaEnvelope />
                 </span>
                 <span className="text-sm">sabbirhossainsohag5@gmail.com</span>
               </motion.li>
               <motion.li
-                className="flex items-center gap-3 text-base-content/70 group"
+                className={`flex items-center gap-3 group ${
+                  theme === "dark" ? "text-gray-400" : "text-slate-600"
+                }`}
                 whileHover={{ x: 5 }}
               >
-                <span className="w-9 h-9 rounded-lg bg-slate-800/80 border border-slate-700/50 flex items-center justify-center text-pink-400 group-hover:border-pink-500/50 transition-all">
+                <span
+                  className={`w-9 h-9 rounded-lg flex items-center justify-center text-pink-400 transition-all ${
+                    theme === "dark"
+                      ? "bg-slate-800/80 border border-slate-700/50 group-hover:border-pink-500/50"
+                      : "bg-gray-100 border border-gray-200 group-hover:border-pink-400"
+                  }`}
+                >
                   <FaPhone />
                 </span>
                 <span className="text-sm">+880 1723-473804</span>
               </motion.li>
               <motion.li
-                className="flex items-center gap-3 text-base-content/70 group"
+                className={`flex items-center gap-3 group ${
+                  theme === "dark" ? "text-gray-400" : "text-slate-600"
+                }`}
                 whileHover={{ x: 5 }}
               >
-                <span className="w-9 h-9 rounded-lg bg-slate-800/80 border border-slate-700/50 flex items-center justify-center text-cyan-400 group-hover:border-cyan-500/50 transition-all">
+                <span
+                  className={`w-9 h-9 rounded-lg flex items-center justify-center text-cyan-400 transition-all ${
+                    theme === "dark"
+                      ? "bg-slate-800/80 border border-slate-700/50 group-hover:border-cyan-500/50"
+                      : "bg-gray-100 border border-gray-200 group-hover:border-cyan-400"
+                  }`}
+                >
                   <FaMapMarkerAlt />
                 </span>
                 <span className="text-sm">Dinajpur, Bangladesh</span>
@@ -226,14 +286,18 @@ const Footer = () => {
           transition={{ delay: 0.5 }}
           viewport={{ once: true }}
         >
-          <p className="text-base-content/60 text-sm text-center flex items-center gap-2 flex-wrap justify-center">
+          <p
+            className={`text-sm text-center flex items-center gap-2 flex-wrap justify-center ${
+              theme === "dark" ? "text-gray-500" : "text-slate-500"
+            }`}
+          >
             © {currentYear}
             <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent font-semibold">
-              Sabbir Hossain Sohag
+              {" "}
+              All credits Reserved by Sabbir Hossain Sohag
             </span>
             <span className="flex items-center gap-1">
-              Made with <FaHeart className="text-red-500 animate-pulse" /> in
-              Bangladesh
+              <FaHeart className="text-red-500 animate-pulse" />
             </span>
           </p>
         </motion.div>

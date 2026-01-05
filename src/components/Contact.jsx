@@ -7,10 +7,12 @@ import {
 } from "react-icons/fa";
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { useTheme } from "../context/ThemeContext";
 
 const Contact = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  const { theme } = useTheme();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -77,7 +79,9 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="py-20 bg-slate-900/50 overflow-hidden"
+      className={`py-20 overflow-hidden ${
+        theme === "dark" ? "bg-slate-900/50" : "bg-gray-100/50"
+      }`}
       ref={sectionRef}
     >
       <div className="container mx-auto px-4">
@@ -87,14 +91,24 @@ const Contact = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Contact Me</h2>
+          <h2
+            className={`text-3xl md:text-4xl font-bold mb-4 ${
+              theme === "dark" ? "text-white" : "text-slate-800"
+            }`}
+          >
+            Contact Me
+          </h2>
           <motion.div
             className="w-24 h-1 bg-primary mx-auto rounded-full"
             initial={{ width: 0 }}
             animate={isInView ? { width: 96 } : {}}
             transition={{ duration: 0.8, delay: 0.3 }}
           />
-          <p className="mt-4 text-base-content/70 max-w-2xl mx-auto">
+          <p
+            className={`mt-4 max-w-2xl mx-auto ${
+              theme === "dark" ? "text-gray-400" : "text-slate-600"
+            }`}
+          >
             Feel free to reach out to me for any questions or opportunities!
           </p>
         </motion.div>
@@ -106,8 +120,18 @@ const Contact = () => {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-2xl font-bold mb-6">Get in Touch</h3>
-            <p className="text-base-content/70 mb-8">
+            <h3
+              className={`text-2xl font-bold mb-6 ${
+                theme === "dark" ? "text-white" : "text-slate-800"
+              }`}
+            >
+              Get in Touch
+            </h3>
+            <p
+              className={`mb-8 ${
+                theme === "dark" ? "text-gray-400" : "text-slate-600"
+              }`}
+            >
               I&apos;m always open to discussing new projects, creative ideas,
               or opportunities to be part of your vision. Feel free to contact
               me through any of the following methods:
@@ -136,18 +160,32 @@ const Contact = () => {
                     <info.icon className="text-2xl text-primary" />
                   </motion.div>
                   <div>
-                    <h4 className="font-semibold">{info.title}</h4>
+                    <h4
+                      className={`font-semibold ${
+                        theme === "dark" ? "text-white" : "text-slate-800"
+                      }`}
+                    >
+                      {info.title}
+                    </h4>
                     {info.link ? (
                       <a
                         href={info.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-base-content/70 hover:text-primary transition-colors"
+                        className={`hover:text-primary transition-colors ${
+                          theme === "dark" ? "text-gray-400" : "text-slate-600"
+                        }`}
                       >
                         {info.value}
                       </a>
                     ) : (
-                      <p className="text-base-content/70">{info.value}</p>
+                      <p
+                        className={`${
+                          theme === "dark" ? "text-gray-400" : "text-slate-600"
+                        }`}
+                      >
+                        {info.value}
+                      </p>
                     )}
                   </div>
                 </motion.div>
@@ -156,14 +194,28 @@ const Contact = () => {
 
             {/* Map or Additional Info */}
             <motion.div
-              className="mt-8 p-6 bg-slate-800/50 backdrop-blur-sm rounded-2xl border border-slate-700/30"
+              className={`mt-8 p-6 backdrop-blur-sm rounded-2xl border ${
+                theme === "dark"
+                  ? "bg-slate-800/50 border-slate-700/30"
+                  : "bg-white border-gray-200 shadow-md"
+              }`}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.5 }}
               whileHover={{ scale: 1.02 }}
             >
-              <h4 className="font-semibold mb-2">Availability</h4>
-              <p className="text-base-content/70 text-sm">
+              <h4
+                className={`font-semibold mb-2 ${
+                  theme === "dark" ? "text-white" : "text-slate-800"
+                }`}
+              >
+                Availability
+              </h4>
+              <p
+                className={`text-sm ${
+                  theme === "dark" ? "text-gray-400" : "text-slate-600"
+                }`}
+              >
                 I typically respond within 24 hours. For urgent matters, please
                 reach out via WhatsApp or phone.
               </p>
@@ -177,12 +229,22 @@ const Contact = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <motion.div
-              className="bg-slate-800/50 backdrop-blur-sm p-8 rounded-2xl shadow-lg border border-slate-700/30"
+              className={`backdrop-blur-sm p-8 rounded-2xl shadow-lg border ${
+                theme === "dark"
+                  ? "bg-slate-800/50 border-slate-700/30"
+                  : "bg-white border-gray-200 shadow-md"
+              }`}
               whileHover={{
                 boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
               }}
             >
-              <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
+              <h3
+                className={`text-2xl font-bold mb-6 ${
+                  theme === "dark" ? "text-white" : "text-slate-800"
+                }`}
+              >
+                Send a Message
+              </h3>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">

@@ -3,6 +3,7 @@ import { motion, useInView } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FaCode, FaLaptopCode, FaGamepad, FaMusic } from "react-icons/fa";
+import { useTheme } from "../context/ThemeContext";
 import sabbirImage from "../assets/sabbir-image.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -11,6 +12,7 @@ const About = () => {
   const sectionRef = useRef(null);
   const imageRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  const { theme } = useTheme();
 
   const highlights = [
     {
@@ -90,7 +92,13 @@ const About = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
+          <h2
+            className={`text-3xl md:text-4xl font-bold mb-4 ${
+              theme === "dark" ? "text-white" : "text-slate-800"
+            }`}
+          >
+            About Me
+          </h2>
           <motion.div
             className="w-24 h-1 bg-primary mx-auto rounded-full"
             initial={{ width: 0 }}
@@ -135,7 +143,9 @@ const About = () => {
             animate={isInView ? "visible" : "hidden"}
           >
             <motion.h3
-              className="text-2xl font-bold mb-6"
+              className={`text-2xl font-bold mb-6 ${
+                theme === "dark" ? "text-white" : "text-slate-800"
+              }`}
               variants={itemVariants}
             >
               A Passionate MERN Stack & Next.js Front-End Developer Based in
@@ -143,7 +153,9 @@ const About = () => {
             </motion.h3>
 
             <motion.div
-              className="space-y-4 text-base-content/80"
+              className={`space-y-4 ${
+                theme === "dark" ? "text-gray-300" : "text-slate-600"
+              }`}
               variants={containerVariants}
             >
               <motion.p variants={itemVariants}>
@@ -178,7 +190,7 @@ const About = () => {
               </motion.p>
 
               <motion.p variants={itemVariants}>
-                <strong className="text-primary">My Philosophy:</strong> I
+                <strong className="text-primary ">My Philosophy:</strong> I
                 believe that continuous learning is the key to success in the
                 tech industry. Every day is an opportunity to learn something
                 new and become a better developer.
@@ -190,7 +202,11 @@ const About = () => {
               {highlights.map((item, i) => (
                 <motion.div
                   key={item.title}
-                  className="bg-slate-800/50 backdrop-blur-sm p-4 rounded-xl hover:shadow-lg transition-shadow border border-slate-700/30"
+                  className={`backdrop-blur-sm p-4 rounded-xl hover:shadow-lg transition-shadow border ${
+                    theme === "dark"
+                      ? "bg-slate-800/50 border-slate-700/30"
+                      : "bg-white border-gray-200 shadow-md"
+                  }`}
                   custom={i}
                   variants={cardVariants}
                   initial="hidden"
@@ -198,8 +214,18 @@ const About = () => {
                   whileHover={{ scale: 1.05, y: -5 }}
                 >
                   <item.icon className="text-3xl text-primary mb-2" />
-                  <h4 className="font-semibold">{item.title}</h4>
-                  <p className="text-sm text-base-content/60">
+                  <h4
+                    className={`font-semibold ${
+                      theme === "dark" ? "text-white" : "text-slate-800"
+                    }`}
+                  >
+                    {item.title}
+                  </h4>
+                  <p
+                    className={`text-sm ${
+                      theme === "dark" ? "text-gray-400" : "text-slate-500"
+                    }`}
+                  >
                     {item.description}
                   </p>
                 </motion.div>
