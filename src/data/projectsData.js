@@ -3,6 +3,7 @@ import scholarshipImg from "../assets/scholarship.jpg";
 import homeNestImg from "../assets/homeNest.PNG";
 import portfolioImg from "../assets/portfolio.PNG";
 import dragonNewsImg from "../assets/the-dragon-news.PNG";
+import catalogxImg from "../assets/catalogx2.png";
 
 export const projectsData = [
   {
@@ -182,6 +183,60 @@ The platform enables students to easily discover and apply for scholarships, all
   },
   {
     id: 4,
+    name: "CatalogX",
+    image: catalogxImg,
+    shortDescription:
+      "CatalogX is a modern, responsive e-commerce platform built using Next.js. It provides users with a seamless shopping experience to explore curated products, view detailed item information, and interact with a professional catalog interface. The project leverages modern React technologies and libraries to deliver high performance, interactivity, and a visually appealing design.",
+    fullDescription: `CatalogX is a modern, responsive e-commerce platform built using Next.js. It provides users with a seamless shopping experience to explore curated products, view detailed item information, and interact with a professional catalog interface. The project leverages modern React technologies and libraries to deliver high performance, interactivity, and a visually appealing design.
+
+**Features:**
+• Product listings with discounts
+• Detailed product view with image gallery
+• Infinite scroll for products
+• Blog section for tech and product information
+• Fully responsive and optimized for both desktop and mobile devices
+• Mock login implemented
+
+**Frontend Technologies:**
+• Next.js (App Router)
+• Tailwind CSS
+• Framer Motion
+• React Query
+• Swiper.js
+• Mock Auth
+
+**Other:**
+• Modern UI/UX
+• Fast performance
+• SEO optimized
+`,
+    techStack: [
+      "Next.js",
+      "Tailwind CSS",
+      "Framer Motion",
+      "React Query",
+      "Swiper.js",
+      "Mock Auth",
+    ],
+    liveLink: "https://catalogx-client.vercel.app",
+    githubLink: "https://github.com/sabbirsohag-1509/catalogx-nextjs-client",
+    challenges: [
+      "Implementing infinite scroll for products",
+      "Building a responsive image gallery",
+      "Integrating a blog section with product info",
+      "Ensuring fast performance and SEO",
+      "Mock authentication flow",
+    ],
+    futureImprovements: [
+      "Add real payment gateway integration",
+      "Implement user reviews and ratings",
+      "Add admin dashboard for product management",
+      "Integrate real authentication and user profiles",
+      "Add wishlist and cart features",
+    ],
+  },
+  {
+    id: 5,
     name: "The Dragon News",
     image: dragonNewsImg,
     shortDescription:

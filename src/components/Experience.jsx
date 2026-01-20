@@ -12,7 +12,7 @@ const Experience = () => {
       title: "MERN Stack Front-End Developer",
       company: "Programming Hero Graduate",
       location: "Bangladesh",
-      duration: "2025 - Present (9 Months)",
+      duration: "2025 - Present (1+ Year)",
       type: "Course Completion & Projects",
       description: [
         "Completed Complete Web Development Course from Programming Hero",

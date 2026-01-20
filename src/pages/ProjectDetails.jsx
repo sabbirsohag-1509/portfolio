@@ -1,4 +1,5 @@
 import { useParams, Link } from "react-router-dom";
+import { useEffect } from "react";
 import {
   FaGithub,
   FaExternalLinkAlt,
@@ -9,6 +10,9 @@ import {
 import { projectsData } from "../data/projectsData";
 
 const ProjectDetails = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const { id } = useParams();
   const project = projectsData.find((p) => p.id === parseInt(id));
 

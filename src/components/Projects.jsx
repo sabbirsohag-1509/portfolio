@@ -7,6 +7,7 @@ import scholarshipImg from "../assets/scholarship.jpg";
 import homeNestImg from "../assets/homeNest.PNG";
 import portfolioImg from "../assets/portfolio.PNG";
 import dragonNewsImg from "../assets/the-dragon-news.PNG";
+import catalogxImg from "../assets/catalogx.png";
 
 const Projects = () => {
   const projects = [
@@ -69,6 +70,23 @@ const Projects = () => {
     },
     {
       id: 4,
+      name: "CatalogX",
+      image: catalogxImg,
+      shortDescription:
+        "CatalogX is a modern, responsive e-commerce platform built using Next.js. It provides users with a seamless shopping experience to explore curated products. \n\nFeatures include:\n- Product listings with discounts.\n- Mock login implemented.",
+      techStack: [
+        "Next.js",
+        "Tailwind CSS",
+        "Framer Motion",
+        "React Query",
+        "Swiper.js",
+        "Mock Auth",
+      ],
+      liveLink: "https://catalogx-client.vercel.app",
+      githubLink: "https://github.com/sabbirsohag-1509/catalogx-nextjs-client",
+    },
+    {
+      id: 5,
       name: "The Dragon News",
       image: dragonNewsImg,
       shortDescription:
@@ -136,8 +154,8 @@ const Projects = () => {
               theme === "dark" ? "text-gray-400" : "text-slate-600"
             }`}
           >
-            Here are some of my recent projects that showcase my skills and
-            experience
+            Here are some of my recent projects that showcase my skills and 1+
+            Year experience
           </p>
         </motion.div>
 
@@ -235,7 +253,7 @@ const Projects = () => {
                 </div>
 
                 {/* Action Buttons */}
-                <div className="card-actions justify-end mt-4">
+                <div className="card-actions justify-end mt-4 flex gap-2">
                   <motion.div
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
@@ -247,6 +265,20 @@ const Projects = () => {
                       View Details
                       <FaArrowRight />
                     </Link>
+                  </motion.div>
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <a
+                      href={project.liveLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-success btn-sm gap-2 ml-2"
+                    >
+                      Live Link
+                      <FaExternalLinkAlt />
+                    </a>
                   </motion.div>
                 </div>
               </div>

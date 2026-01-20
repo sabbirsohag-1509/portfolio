@@ -163,7 +163,7 @@ const Hero = () => {
               }`}
               variants={itemVariants}
             >
-              Passionate MERN Stack Front-End Developer with 9 months of
+              Passionate MERN Stack Front-End Developer with 1+ Year of
               experience in building beautiful, responsive, and user-friendly
               web applications using React, Next.js, TypeScript, JavaScript
               (ES6+), Tailwind CSS, and modern web technologies.
@@ -175,7 +175,7 @@ const Hero = () => {
               variants={itemVariants}
             >
               <motion.a
-                href="/resume.pdf"
+                href="/Sabbir_Hossain_Sohag_Resume.pdf"
                 download
                 onClick={handleDownloadResume}
                 className="btn btn-primary btn-lg gap-2"

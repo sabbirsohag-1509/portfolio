@@ -14,7 +14,7 @@ const Education = () => {
       degree: "Bachelor of Science in Zoology",
       institution: "Dinajpur Govt. College",
       location: "Dinajpur, Bangladesh",
-      duration: "2021 - 2025",
+      duration: "2021 - Present",
       description:
         "Pursuing Bachelor of Science degree in Zoology. Alongside academic studies, completed Complete Web Development Course from Programming Hero and became a MERN Stack Front-End Developer.",
       icon: FaUniversity,
@@ -39,17 +39,6 @@ const Education = () => {
       duration: "Science",
       description:
         "Completed Higher Secondary Certificate in Science group from Dinajpur Government College.",
-      icon: FaSchool,
-      current: false,
-    },
-    {
-      id: 4,
-      degree: "Secondary School Certificate (SSC)",
-      institution: "Ibrahim Memorial Shiksha Niketon",
-      location: "Dinajpur, Bangladesh",
-      duration: "",
-      description:
-        "Completed Secondary School Certificate from Ibrahim Memorial Shiksha Niketon.",
       icon: FaSchool,
       current: false,
     },

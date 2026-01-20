@@ -52,7 +52,7 @@ const About = () => {
             end: "bottom 20%",
             toggleActions: "play none none reverse",
           },
-        }
+        },
       );
     }
   }, []);
@@ -130,8 +130,8 @@ const About = () => {
                 transition={{ duration: 0.5, delay: 0.5 }}
                 whileHover={{ scale: 1.1 }}
               >
-                <p className="text-4xl font-bold">9+</p>
-                <p className="text-sm">Months Experience</p>
+                <p className="text-4xl font-bold">1+</p>
+                <p className="text-sm">Year Experience</p>
               </motion.div>
             </div>
           </motion.div>
