@@ -16,7 +16,7 @@ const Education = () => {
       location: "Dinajpur, Bangladesh",
       duration: "2021 - Present",
       description:
-        "Pursuing Bachelor of Science degree in Zoology. Alongside academic studies, completed Complete Web Development Course from Programming Hero and became a MERN Stack Front-End Developer.",
+        "Pursuing Bachelor of Science degree in Zoology. Alongside academic studies, completed Complete Web Development Course from Programming Hero and became a MERN Stack Developer.",
       icon: FaUniversity,
       current: false,
     },

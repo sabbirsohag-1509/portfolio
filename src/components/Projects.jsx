@@ -3,108 +3,14 @@ import { Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt, FaArrowRight } from "react-icons/fa";
 import { useTheme } from "../context/ThemeContext";
-import scholarshipImg from "../assets/scholarship.jpg";
-import homeNestImg from "../assets/homeNest.PNG";
-import portfolioImg from "../assets/portfolio.PNG";
-import dragonNewsImg from "../assets/the-dragon-news.PNG";
-import catalogxImg from "../assets/catalogx.png";
+import { projectsData } from "../data/projectsData";
 
 const Projects = () => {
-  const projects = [
-    {
-      id: 1,
-      name: "ScholarStream",
-      image: scholarshipImg,
-      shortDescription:
-        "A comprehensive scholarship management platform with multi-role system (Student, Moderator, Admin) featuring secure authentication, Stripe payments, and analytics dashboard.",
-      techStack: [
-        "React",
-        "Node.js",
-        "MongoDB",
-        "Express.js",
-        "Tailwind CSS",
-        "JWT",
-        "Stripe",
-        "Firebase Auth",
-      ],
-      liveLink: "https://sparkling-sable-55715c.netlify.app",
-      githubLink: "https://github.com/sabbirsohag-1509/assignment-11-client",
-    },
-    {
-      id: 2,
-      name: "HomeNest",
-      image: homeNestImg,
-      shortDescription:
-        "A real estate management platform with role-based dashboards (Buyer, Seller, Admin), Stripe payment integration, and comprehensive property listing system.",
-      techStack: [
-        "React",
-        "Node.js",
-        "Express.js",
-        "MongoDB",
-        "Tailwind CSS",
-        "DaisyUI",
-        "JWT",
-        "Stripe",
-      ],
-      liveLink: "https://whimsical-marigold-942cbe.netlify.app",
-      githubLink:
-        "https://github.com/sabbirsohag-1509/assignment-10-client-site",
-    },
-    {
-      id: 3,
-      name: "Personal Portfolio",
-      image: portfolioImg,
-      shortDescription:
-        "A modern, responsive portfolio website with smooth animations, interactive components, and professional design to showcase my skills and projects.",
-      techStack: [
-        "React",
-        "Tailwind CSS",
-        "DaisyUI",
-        "Framer Motion",
-        "Lenis",
-        "Vite",
-        "React Router",
-      ],
-      liveLink: "https://portfolio-sabbir-sohag-f956ef.netlify.app",
-      githubLink: "https://github.com/sabbirsohag-1509/portfolio",
-    },
-    {
-      id: 4,
-      name: "CatalogX",
-      image: catalogxImg,
-      shortDescription:
-        "CatalogX is a modern, responsive e-commerce platform built using Next.js. It provides users with a seamless shopping experience to explore curated products. \n\nFeatures include:\n- Product listings with discounts.\n- Mock login implemented.",
-      techStack: [
-        "Next.js",
-        "Tailwind CSS",
-        "Framer Motion",
-        "React Query",
-        "Swiper.js",
-        "Mock Auth",
-      ],
-      liveLink: "https://catalogx-client.vercel.app",
-      githubLink: "https://github.com/sabbirsohag-1509/catalogx-nextjs-client",
-    },
-    {
-      id: 5,
-      name: "The Dragon News",
-      image: dragonNewsImg,
-      shortDescription:
-        "An online newspaper platform with live news reading, category browsing, breaking news marquee, and secure Firebase authentication with JWT protected routes.",
-      techStack: [
-        "React",
-        "Tailwind CSS",
-        "DaisyUI",
-        "Firebase",
-        "JWT",
-        "React Router",
-        "date-fns",
-      ],
-      liveLink: "https://elaborate-unicorn-82d342.netlify.app/category/0",
-      githubLink:
-        "https://github.com/sabbirsohag-1509/module-50-51-firebase-dragon-news",
-    },
-  ];
+  const projects = [...projectsData].sort((a, b) => {
+    if (a.name === "DashChat") return -1;
+    if (b.name === "DashChat") return 1;
+    return 0;
+  });
 
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
@@ -180,7 +86,7 @@ const Projects = () => {
               {/* Project Image */}
               <figure className="relative overflow-hidden">
                 <motion.img
-                  src={project.image}
+                  src={project.images?.[0] || project.image}
                   alt={project.name}
                   className="w-full h-48 object-cover"
                   whileHover={{ scale: 1.1 }}

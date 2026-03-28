@@ -4,6 +4,11 @@ import homeNestImg from "../assets/homeNest.PNG";
 import portfolioImg from "../assets/portfolio.PNG";
 import dragonNewsImg from "../assets/the-dragon-news.PNG";
 import catalogxImg from "../assets/catalogx2.png";
+import dashchatHomeImg from "../assets/dashchat-home.PNG";
+import dashchatChatImg from "../assets/dashchat-1.PNG";
+import dashchatCallImg from "../assets/dashchat-call.PNG";
+import dashchatCall2Img from "../assets/dashchat-call-2.PNG";
+import dashchatAboutImg from "../assets/dashchat-about.PNG";
 
 export const projectsData = [
   {
@@ -233,6 +238,95 @@ The platform enables students to easily discover and apply for scholarships, all
       "Add admin dashboard for product management",
       "Integrate real authentication and user profiles",
       "Add wishlist and cart features",
+    ],
+  },
+  {
+    id: 6,
+    name: "DashChat",
+    image: dashchatHomeImg,
+    images: [
+      dashchatHomeImg,
+      dashchatChatImg,
+      dashchatCallImg,
+      dashchatCall2Img,
+      dashchatAboutImg,
+    ],
+    shortDescription:
+      "A full-stack realtime group project chat platform with friend workflows, notification feeds, and audio/video calling powered by Socket.IO and Stream.",
+    fullDescription: `DashChat is our group project, built as a full-stack realtime chat platform for fast and private communication with modern UX patterns. The app provides direct messaging, friend system workflows, notification feeds, and Stream-powered audio/video calling from the dashboard.
+
+It was developed as a team collaboration project where we built scalable chat architecture, responsive frontend experiences, and secure backend APIs for production-like workflows.
+
+**Key Features:**
+• Email/password authentication with protected dashboard routes
+• Google OAuth login integration
+• Realtime 1:1 messaging using Socket.IO
+• Message delivery states (sent, delivered, seen)
+• Edit/delete messages with emoji reactions
+• Reply and forward message workflows
+• Friend system (send, accept, reject, unfriend, block/unblock)
+• Notification feed for social activities
+• Audio/video calling with Stream Video SDK
+• Call lifecycle tracking (ringing, received, completed, missed, failed)
+• Call history with backend-driven pagination, search, filters, and sorting
+• Multi-theme UI with DaisyUI themes
+• Responsive public and dashboard layouts
+
+**Project Links:**
+• Live App: https://dash-chat-frontend.onrender.com
+• GitHub Team Repo: https://github.com/somrat350/Dash-Chat
+
+**Team:**
+• Osamabin Somrat
+• Arman Hossain Shuvo
+• Sabbir Hossain Sohag
+• Tangila Khatun
+• Lima Akter
+• China Akter`,
+    techStack: [
+      "React 19",
+      "Vite",
+      "React Router",
+      "TanStack Query",
+      "Zustand",
+      "Tailwind CSS",
+      "DaisyUI",
+      "Axios",
+      "Socket.IO Client",
+      "Stream Video React SDK",
+      "GSAP",
+      "React Hot Toast",
+      "React",
+      "Node.js",
+      "Express.js",
+      "Express 5",
+      "MongoDB",
+      "Mongoose",
+      "Socket.io",
+      "JWT",
+      "Cookie Auth",
+      "Google OAuth",
+      "Google APIs",
+      "Stream Chat Server SDK",
+      "GetStream",
+      "ESLint",
+      "Nodemon",
+    ],
+    liveLink: "https://dash-chat-frontend.onrender.com",
+    githubLink: "https://github.com/somrat350/Dash-Chat",
+    challenges: [
+      "Managing realtime Socket.IO message sync while keeping UI responsive",
+      "Implementing accurate delivery states (sent/delivered/seen) across clients",
+      "Designing friend system workflows with block/unblock and notification logic",
+      "Handling Stream call lifecycle events and call history consistency",
+      "Building responsive dashboard and chat layout for mobile and desktop",
+    ],
+    futureImprovements: [
+      "Add file, image, and voice-note attachments",
+      "Implement typing indicators and read receipts per conversation",
+      "Add push notifications for offline users",
+      "Introduce end-to-end encryption for private chats",
+      "Add AI-powered smart reply and moderation assistant",
     ],
   },
   {

@@ -10,7 +10,7 @@ import {
 } from "react-icons/fa";
 import { useToast } from "./Toast";
 import { useTheme } from "../context/ThemeContext";
-import sabbirImage from "../assets/sabbir-image.jpg";
+import sabbirImage from "../assets/sabbir-image.png";
 
 const Hero = () => {
   const [displayText, setDisplayText] = useState("");
@@ -26,7 +26,7 @@ const Hero = () => {
   };
 
   useEffect(() => {
-    const titles = ["MERN Stack Front-End Developer"];
+    const titles = ["MERN Stack Developer"];
     const currentTitle = titles[loopNum % titles.length];
 
     const handleTyping = () => {
@@ -163,10 +163,10 @@ const Hero = () => {
               }`}
               variants={itemVariants}
             >
-              Passionate MERN Stack Front-End Developer with 1+ Year of
-              experience in building beautiful, responsive, and user-friendly
-              web applications using React, Next.js, TypeScript, JavaScript
-              (ES6+), Tailwind CSS, and modern web technologies.
+              Passionate MERN Stack Developer with 1+ Year of experience in
+              building beautiful, responsive, and user-friendly web applications
+              using React, Next.js, TypeScript, JavaScript (ES6+), Tailwind CSS,
+              and modern web technologies.
             </motion.p>
 
             {/* Resume Download Button */}

@@ -148,8 +148,7 @@ const About = () => {
               }`}
               variants={itemVariants}
             >
-              A Passionate MERN Stack & Next.js Front-End Developer Based in
-              Bangladesh
+              A Passionate MERN Stack Developer Based in Bangladesh
             </motion.h3>
 
             <motion.div

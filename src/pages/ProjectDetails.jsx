@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   FaGithub,
   FaExternalLinkAlt,
@@ -10,11 +10,18 @@ import {
 import { projectsData } from "../data/projectsData";
 
 const ProjectDetails = () => {
+  const [selectedImage, setSelectedImage] = useState(null);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   const { id } = useParams();
   const project = projectsData.find((p) => p.id === parseInt(id));
+  const projectImages = project?.images?.length
+    ? project.images
+    : project
+      ? [project.image]
+      : [];
 
   if (!project) {
     return (
@@ -48,13 +55,32 @@ const ProjectDetails = () => {
           </p>
         </div>
 
-        {/* Project Image */}
+        {/* Project Images */}
         <div className="mb-12">
           <img
-            src={project.image}
+            src={projectImages[0]}
             alt={project.name}
             className="w-full rounded-2xl shadow-2xl"
           />
+
+          {projectImages.length > 1 && (
+            <div className="flex flex-wrap gap-4 mt-4">
+              {projectImages.slice(1).map((imgSrc, index) => (
+                <button
+                  key={imgSrc}
+                  type="button"
+                  onClick={() => setSelectedImage(imgSrc)}
+                  className="rounded-xl overflow-hidden shadow-lg border border-base-300"
+                >
+                  <img
+                    src={imgSrc}
+                    alt={`${project.name} thumbnail ${index + 2}`}
+                    className="w-48 h-32 object-cover"
+                  />
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Main Content Grid */}
@@ -82,7 +108,7 @@ const ProjectDetails = () => {
               <ul className="space-y-4">
                 {project.challenges.map((challenge, index) => (
                   <li key={index} className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-warning/20 text-warning rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 text-sm font-bold">
+                    <span className="w-6 h-6 bg-warning/20 text-warning rounded-full flex items-center justify-center shrink-0 mt-0.5 text-sm font-bold">
                       {index + 1}
                     </span>
                     <span className="text-base-content/80">{challenge}</span>
@@ -100,7 +126,7 @@ const ProjectDetails = () => {
               <ul className="space-y-4">
                 {project.futureImprovements.map((improvement, index) => (
                   <li key={index} className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-info/20 text-info rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 text-sm font-bold">
+                    <span className="w-6 h-6 bg-info/20 text-info rounded-full flex items-center justify-center shrink-0 mt-0.5 text-sm font-bold">
                       {index + 1}
                     </span>
                     <span className="text-base-content/80">{improvement}</span>
@@ -183,7 +209,7 @@ const ProjectDetails = () => {
                 >
                   <figure>
                     <img
-                      src={p.image}
+                      src={p.images?.[0] || p.image}
                       alt={p.name}
                       className="w-full h-40 object-cover"
                     />
@@ -196,6 +222,33 @@ const ProjectDetails = () => {
           </div>
         </div>
       </div>
+
+      {selectedImage && (
+        <div
+          className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div
+            className="relative max-w-5xl w-full"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setSelectedImage(null)}
+              className="absolute -top-3 -right-3 w-10 h-10 rounded-full bg-white text-black font-bold shadow-lg"
+              aria-label="Close image preview"
+            >
+              X
+            </button>
+
+            <img
+              src={selectedImage}
+              alt="Project preview"
+              className="w-full max-h-[85vh] object-contain rounded-2xl"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

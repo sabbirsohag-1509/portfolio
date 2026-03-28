@@ -120,8 +120,7 @@ const Skills = () => {
               theme === "dark" ? "text-gray-400" : "text-slate-600"
             }`}
           >
-            As a MERN Stack Front-End Developer, here are the technologies I
-            specialize in
+            As a MERN Stack Developer, here are the technologies I specialize in
           </p>
         </motion.div>
 

@@ -9,7 +9,7 @@ const Experience = () => {
   const experiences = [
     {
       id: 1,
-      title: "MERN Stack Front-End Developer",
+      title: "MERN Stack Developer",
       company: "Programming Hero Graduate",
       location: "Bangladesh",
       duration: "2025 - Present (1+ Year)",
@@ -60,8 +60,7 @@ const Experience = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
           />
           <p className="mt-4 text-base-content/70 max-w-2xl mx-auto">
-            My journey as a Programming Hero graduate and MERN Stack Front-End
-            Developer
+            My journey as a Programming Hero graduate and MERN Stack Developer
           </p>
         </motion.div>
 
