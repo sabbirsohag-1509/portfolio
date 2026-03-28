@@ -1,16 +1,118 @@
-# React + Vite
+# My Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern and responsive developer portfolio built with React and Vite.
+This website showcases my skills, education, experience, and featured projects with smooth animations and a clean UI.
 
-Currently, two official plugins are available:
+## Live Website
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Live URL: https://portfolio-sabbir-sohag-f956ef.netlify.app
 
-## React Compiler
+## Project Overview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This portfolio is designed to present my profile as a MERN Stack Developer.
+It includes an animated hero section, skills overview, project showcase with detail pages, and a contact section.
 
-## Expanding the ESLint configuration
+## Key Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Fully responsive design for mobile, tablet, and desktop
+- Animated sections using Framer Motion and GSAP
+- Smooth scrolling experience with Lenis
+- Project showcase with dedicated project details page
+- Multiple screenshots support in project details
+- Image preview modal with close button for gallery thumbnails
+- Clean component-based React architecture
+
+## Tech Stack
+
+### Frontend
+
+- React 19
+- React Router
+- Vite
+- Tailwind CSS
+- DaisyUI
+- Framer Motion
+- GSAP
+- Lenis
+- React Icons
+
+### Tooling
+
+- ESLint
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- npm
+
+### Installation
+
+```bash
+git clone <your-repository-url>
+cd my-portfolio
+npm install
+```
+
+### Run Locally
+
+```bash
+npm run dev
+```
+
+App will run at:
+
+- http://localhost:5173
+
+## Available Scripts
+
+- npm run dev: Start development server
+- npm run build: Create production build
+- npm run preview: Preview production build locally
+- npm run lint: Run ESLint checks
+
+## Project Structure
+
+```text
+my-portfolio/
+	public/
+	src/
+		assets/
+		components/
+		context/
+		data/
+		pages/
+		App.jsx
+		main.jsx
+	index.html
+	package.json
+	vite.config.js
+```
+
+## Featured Projects in Portfolio
+
+- DashChat (Group Project)
+- ScholarStream
+- HomeNest
+- Personal Portfolio
+- CatalogX
+- The Dragon News
+
+## Deployment
+
+You can deploy this project on:
+
+- Netlify
+- Vercel
+- Render
+
+## Author
+
+- Sabbir Hossain Sohag
+- LinkedIn: https://www.linkedin.com/in/sabbirhossainsohag/
+- GitHub: https://github.com/sabbirsohag-1509
+
+## License
+
+This project is for personal portfolio and educational use.
