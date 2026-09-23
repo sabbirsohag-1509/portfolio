@@ -10,6 +10,11 @@ import {
   FaGithub,
   FaFigma,
   FaDatabase,
+  FaRobot,
+  FaBrain,
+  FaCode,
+  FaLightbulb,
+  FaProjectDiagram,
 } from "react-icons/fa";
 import { useTheme } from "../context/ThemeContext";
 import {
@@ -65,6 +70,41 @@ const Skills = () => {
         { name: "Figma", icon: FaFigma, level: 60, color: "#F24E1E" },
         { name: "Vercel", icon: SiVercel, level: 75, color: "#000000" },
         { name: "Netlify", icon: SiNetlify, level: 70, color: "#00C7B7" },
+      ],
+    },
+    {
+      title: "AI & Modern Development",
+      skills: [
+        {
+          name: "AI-Assisted Web Development",
+          icon: FaRobot,
+          level: 85,
+          color: "#7C3AED",
+        },
+        {
+          name: "Agentic AI Workflows",
+          icon: FaProjectDiagram,
+          level: 80,
+          color: "#2563EB",
+        },
+        {
+          name: "Prompt Engineering",
+          icon: FaBrain,
+          level: 82,
+          color: "#DB2777",
+        },
+        {
+          name: "AI-Assisted Coding",
+          icon: FaCode,
+          level: 88,
+          color: "#059669",
+        },
+        {
+          name: "AI Debugging & Problem Solving",
+          icon: FaLightbulb,
+          level: 84,
+          color: "#D97706",
+        },
       ],
     },
   ];
