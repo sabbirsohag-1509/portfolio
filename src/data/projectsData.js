@@ -9,10 +9,111 @@ import dashchatChatImg from "../assets/dashchat-1.PNG";
 import dashchatCallImg from "../assets/dashchat-call.PNG";
 import dashchatCall2Img from "../assets/dashchat-call-2.PNG";
 import dashchatAboutImg from "../assets/dashchat-about.PNG";
+import rupDarponHomeImg from "../assets/rupdarpan-home.PNG";
+import rupDarponAbout1Img from "../assets/rupdarpon-1-about.PNG";
+import rupDarponAbout2Img from "../assets/rupdarpon-2-about.PNG";
+import rupDarponAbout3Img from "../assets/rupdarpon-3-about.PNG";
+import rupDarponAbout4Img from "../assets/rupdarpon-4-about.PNG";
 
 export const projectsData = [
   {
     id: 1,
+    name: "Rup Darpon",
+    image: rupDarponHomeImg,
+    images: [
+      rupDarponHomeImg,
+      rupDarponAbout1Img,
+      rupDarponAbout2Img,
+      rupDarponAbout3Img,
+      rupDarponAbout4Img,
+    ],
+    shortDescription:
+      "A full-stack photography service platform for showcasing creative work, managing bookings, collecting reviews, and processing online payments.",
+    fullDescription: `Rup Darpon is a full-stack photography service platform developed for a photography business to showcase creative work, manage photography packages, handle customer bookings, collect reviews, and process online payments. The platform provides a modern, responsive user experience with secure authentication, an admin dashboard, and production-ready backend APIs.
+
+I developed the technical implementation of the platform, including the React frontend, Express backend, MongoDB database integration, authentication workflows, booking management, review systems, and payment integration. The project focuses on delivering a scalable and user-friendly digital experience for both customers and administrators.
+
+**Key Features:**
+• Photography gallery with search, category filtering, pagination, and featured photos
+• Photography video showcase and dynamic hero image management
+• Photography package browsing with package details and customer reviews
+• Email/password authentication with protected routes
+• Google OAuth login integration
+• JWT-based authentication using HTTP-only cookies
+• User profile management with profile photo uploads
+• Forgot password, reset password, and change password workflows
+• Customer booking requests with booking status tracking
+• Admin booking management with confirmation, cancellation, and deletion
+• Review submission, editing, deletion, approval, rejection, and featuring
+• SSLCommerz payment integration for confirmed bookings
+• Notification system for booking and account-related activities
+• Admin dashboard with platform statistics and management features
+• User and role management with admin access control
+• Responsive UI with dark and light photography-focused themes
+• Cloudinary integration for profile image uploads
+• Deployed frontend and backend with production environment configuration
+
+**Project Links:**
+• Live Application: https://rup-darpon.netlify.app/
+• Backend API: https://rupdarpon-server.vercel.app/
+• GitHub Repository: https://github.com/sabbirsohag-1509/Rup-Darpan
+
+**My Role:**
+• Full-Stack Developer
+• Designed and developed the frontend using React and modern UI technologies
+• Built backend APIs using Node.js and Express
+• Integrated MongoDB Atlas for database management
+• Implemented authentication, authorization, and protected routes
+• Developed booking, review, notification, and payment workflows
+• Integrated Google OAuth and SSLCommerz services
+• Deployed and configured the application using Netlify and Vercel`,
+    techStack: [
+      "React 19",
+      "Vite",
+      "React Router",
+      "TanStack React Query",
+      "Axios",
+      "React Hook Form",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "JWT",
+      "Google OAuth",
+      "Passport.js",
+      "bcrypt",
+      "Nodemailer",
+      "SSLCommerz",
+      "Cloudinary",
+      "Tailwind CSS",
+      "DaisyUI",
+      "Lucide React",
+      "Framer Motion",
+      "Netlify",
+      "Vercel",
+    ],
+    liveLink: "https://rup-darpon.netlify.app/",
+    githubLink: "https://github.com/sabbirsohag-1509/Rup-Darpan",
+    challenges: [
+      "Designing a scalable full-stack architecture for photography content, bookings, reviews, and admin workflows",
+      "Implementing secure JWT HTTP-only cookie authentication, Google OAuth, protected routes, and role-based access control",
+      "Managing booking workflows across customers and administrators with accurate booking and payment statuses",
+      "Integrating SSLCommerz transaction initialization and success, failure, cancellation, and IPN workflows",
+      "Building a responsive gallery with search, category filtering, pagination, and image viewing",
+      "Managing media-heavy photography content and optimizing image delivery",
+      "Configuring frontend and backend deployment across Netlify and Vercel",
+    ],
+    futureImprovements: [
+      "Add advanced image optimization and responsive image delivery",
+      "Introduce an advanced booking calendar with date availability and scheduling management",
+      "Expand payment support with additional local payment gateways, including bKash Merchant",
+      "Add automated email and real-time notifications for booking updates and payment confirmations",
+      "Improve admin analytics with revenue insights, booking trends, and customer engagement reports",
+      "Introduce albums, event-based collections, and improved media management",
+      "Enhance SEO, accessibility, and performance optimization",
+    ],
+  },
+  {
+    id: 2,
     name: "ScholarStream",
     image: scholarshipImg,
     shortDescription:
@@ -58,7 +159,7 @@ The platform enables students to easily discover and apply for scholarships, all
     ],
   },
   {
-    id: 2,
+    id: 3,
     name: "HomeNest",
     image: homeNestImg,
     shortDescription:
@@ -127,7 +228,7 @@ The platform enables students to easily discover and apply for scholarships, all
     ],
   },
   {
-    id: 3,
+    id: 4,
     name: "Personal Portfolio",
     image: portfolioImg,
     shortDescription:
@@ -187,7 +288,7 @@ The platform enables students to easily discover and apply for scholarships, all
     ],
   },
   {
-    id: 4,
+    id: 5,
     name: "CatalogX",
     image: catalogxImg,
     shortDescription:
@@ -293,7 +394,6 @@ It was developed as a team collaboration project where we built scalable chat ar
       "DaisyUI",
       "Axios",
       "Socket.IO Client",
-      "Stream Video React SDK",
       "GSAP",
       "React Hot Toast",
       "React",
@@ -330,7 +430,7 @@ It was developed as a team collaboration project where we built scalable chat ar
     ],
   },
   {
-    id: 5,
+    id: 7,
     name: "The Dragon News",
     image: dragonNewsImg,
     shortDescription:

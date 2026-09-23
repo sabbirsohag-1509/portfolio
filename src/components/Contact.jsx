@@ -7,12 +7,21 @@ import {
 } from "react-icons/fa";
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import emailjs from "@emailjs/browser";
 import { useTheme } from "../context/ThemeContext";
+
+const emailJsConfig = {
+  serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID,
+  templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+  publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+};
 
 const Contact = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
   const { theme } = useTheme();
+  const [isSending, setIsSending] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState({ type: "", message: "" });
 
   const [formData, setFormData] = useState({
     name: "",
@@ -28,12 +37,47 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
-    alert("Thank you for your message! I will get back to you soon.");
-    setFormData({ name: "", email: "", subject: "", message: "" });
+
+    if (Object.values(emailJsConfig).some((value) => !value)) {
+      setSubmitStatus({
+        type: "error",
+        message: "Contact form is not configured yet. Please try again later.",
+      });
+      return;
+    }
+
+    setIsSending(true);
+    setSubmitStatus({ type: "", message: "" });
+
+    try {
+      await emailjs.send(
+        emailJsConfig.serviceId,
+        emailJsConfig.templateId,
+        {
+          ...formData,
+          reply_to: formData.email,
+        },
+        { publicKey: emailJsConfig.publicKey },
+      );
+
+      setSubmitStatus({
+        type: "success",
+        message:
+          "Your message was sent successfully. I will get back to you soon.",
+      });
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (error) {
+      console.error("EmailJS submission failed:", error);
+      setSubmitStatus({
+        type: "error",
+        message:
+          "Message could not be sent. Please try again or contact me directly.",
+      });
+    } finally {
+      setIsSending(false);
+    }
   };
 
   const contactInfo = [
@@ -310,12 +354,25 @@ const Contact = () => {
                 <motion.button
                   type="submit"
                   className="btn btn-primary w-full gap-2"
+                  disabled={isSending}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
                   <FaPaperPlane />
-                  Send Message
+                  {isSending ? "Sending..." : "Send Message"}
                 </motion.button>
+                {submitStatus.message && (
+                  <p
+                    role="status"
+                    className={
+                      submitStatus.type === "success"
+                        ? "text-success text-sm"
+                        : "text-error text-sm"
+                    }
+                  >
+                    {submitStatus.message}
+                  </p>
+                )}
               </form>
             </motion.div>
           </motion.div>

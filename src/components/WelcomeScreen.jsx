@@ -7,8 +7,8 @@ const WelcomeScreen = ({ onComplete }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowContent(false);
-      setTimeout(onComplete, 300);
-    }, 2000);
+      onComplete();
+    }, 1700);
 
     return () => clearTimeout(timer);
   }, [onComplete]);
@@ -17,7 +17,7 @@ const WelcomeScreen = ({ onComplete }) => {
     <AnimatePresence>
       {showContent && (
         <motion.div
-          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900"
+          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-linear-to-br from-slate-900 via-purple-900 to-slate-900"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
@@ -71,7 +71,7 @@ const WelcomeScreen = ({ onComplete }) => {
               />
               {/* Center dot */}
               <motion.div
-                className="absolute inset-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500"
+                className="absolute inset-8 rounded-full bg-linear-to-br from-purple-500 to-pink-500"
                 animate={{
                   scale: [1, 1.2, 1],
                   opacity: [0.8, 1, 0.8],

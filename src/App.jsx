@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Lenis from "lenis";
 import Navbar from "./components/Navbar";
@@ -15,6 +15,9 @@ import { ThemeProvider, useTheme } from "./context/ThemeContext";
 function AppContent() {
   const [showWelcome, setShowWelcome] = useState(true);
   const { theme } = useTheme();
+  const handleWelcomeComplete = useCallback(() => {
+    setShowWelcome(false);
+  }, []);
 
   useEffect(() => {
     // Check if it's a touch device
@@ -54,9 +57,7 @@ function AppContent() {
       }`}
     >
       <AnimatedBackground />
-      {showWelcome && (
-        <WelcomeScreen onComplete={() => setShowWelcome(false)} />
-      )}
+      {showWelcome && <WelcomeScreen onComplete={handleWelcomeComplete} />}
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

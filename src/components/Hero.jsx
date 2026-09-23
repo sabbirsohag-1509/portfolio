@@ -16,7 +16,7 @@ const Hero = () => {
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
-  const [typingSpeed, setTypingSpeed] = useState(150);
+  const [typingSpeed, setTypingSpeed] = useState(80);
   const imageRef = useRef(null);
   const toast = useToast();
   const { theme } = useTheme();
@@ -26,20 +26,20 @@ const Hero = () => {
   };
 
   useEffect(() => {
-    const titles = ["MERN Stack Developer"];
-    const currentTitle = titles[loopNum % titles.length];
+    const titles = ["MERN Stack Developer", "AI Mastered Full Stack Developer"];
+    const title = titles[loopNum % titles.length];
 
     const handleTyping = () => {
       if (!isDeleting) {
-        setDisplayText(currentTitle.substring(0, displayText.length + 1));
-        setTypingSpeed(150);
+        setDisplayText(title.substring(0, displayText.length + 1));
+        setTypingSpeed(80);
 
-        if (displayText === currentTitle) {
-          setTimeout(() => setIsDeleting(true), 2000);
+        if (displayText === title) {
+          setTimeout(() => setIsDeleting(true), 1200);
         }
       } else {
-        setDisplayText(currentTitle.substring(0, displayText.length - 1));
-        setTypingSpeed(75);
+        setDisplayText(title.substring(0, displayText.length - 1));
+        setTypingSpeed(40);
 
         if (displayText === "") {
           setIsDeleting(false);
@@ -118,8 +118,23 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-transparent pt-16 overflow-hidden">
-      <div className="container mx-auto px-4 py-16">
+    <section className="relative isolate min-h-screen flex items-center justify-center bg-transparent pt-16 overflow-hidden">
+      <motion.div
+        aria-hidden="true"
+        className={`pointer-events-none absolute inset-0 z-0 opacity-70 ${
+          theme === "dark" ? "mix-blend-screen" : "mix-blend-multiply"
+        }`}
+        style={{
+          backgroundImage:
+            theme === "dark"
+              ? "radial-gradient(ellipse at 25% 45%, rgba(168, 85, 247, 0.2) 0%, transparent 42%), linear-gradient(rgba(148, 163, 184, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(148, 163, 184, 0.1) 1px, transparent 1px)"
+              : "radial-gradient(ellipse at 25% 45%, rgba(147, 51, 234, 0.14) 0%, transparent 42%), linear-gradient(rgba(100, 116, 139, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(100, 116, 139, 0.1) 1px, transparent 1px)",
+          backgroundSize: "100% 100%, 52px 52px, 52px 52px",
+        }}
+        animate={{ backgroundPosition: ["0px 0px", "52px 52px"] }}
+        transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+      />
+      <div className="relative z-10 container mx-auto px-4 py-16">
         <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
           {/* Text Content */}
           <motion.div
@@ -151,7 +166,7 @@ const Hero = () => {
               </span>
             </motion.h1>
             <motion.h2
-              className="text-2xl md:text-3xl font-semibold text-primary mb-6 min-h-[40px] md:min-h-[48px]"
+              className="text-2xl md:text-3xl font-semibold text-primary mb-6 min-h-10 md:min-h-12"
               variants={itemVariants}
             >
               <span>{displayText}</span>
@@ -163,7 +178,7 @@ const Hero = () => {
               }`}
               variants={itemVariants}
             >
-              Passionate MERN Stack Developer with 1+ Year of experience in
+              Passionate MERN Stack Developer with 2+ Years of experience in
               building beautiful, responsive, and user-friendly web applications
               using React, Next.js, TypeScript, JavaScript (ES6+), Tailwind CSS,
               and modern web technologies.
@@ -273,7 +288,7 @@ const Hero = () => {
 
               {/* Main Image Container with Gradient Border */}
               <motion.div
-                className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full p-1 bg-gradient-to-br from-purple-500 via-pink-500 to-cyan-500"
+                className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full p-1 bg-linear-to-br from-purple-500 via-pink-500 to-cyan-500"
                 animate={{
                   boxShadow: [
                     "0 0 15px rgba(168, 85, 247, 0.3)",

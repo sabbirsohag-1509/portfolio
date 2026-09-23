@@ -7,6 +7,8 @@ import { projectsData } from "../data/projectsData";
 
 const Projects = () => {
   const projects = [...projectsData].sort((a, b) => {
+    if (a.name === "Rup Darpon") return -1;
+    if (b.name === "Rup Darpon") return 1;
     if (a.name === "DashChat") return -1;
     if (b.name === "DashChat") return 1;
     return 0;
@@ -60,8 +62,8 @@ const Projects = () => {
               theme === "dark" ? "text-gray-400" : "text-slate-600"
             }`}
           >
-            Here are some of my recent projects that showcase my skills and 1+
-            Year experience
+            Here are some of my recent projects that showcase my skills and 2+
+            Years of experience
           </p>
         </motion.div>
 

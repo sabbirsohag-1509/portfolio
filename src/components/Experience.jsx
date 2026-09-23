@@ -12,7 +12,7 @@ const Experience = () => {
       title: "MERN Stack Developer",
       company: "Programming Hero Graduate",
       location: "Bangladesh",
-      duration: "2025 - Present (1+ Year)",
+      duration: "2025 - Present (2+ Years)",
       type: "Course Completion & Projects",
       description: [
         "Completed Complete Web Development Course from Programming Hero",
@@ -139,7 +139,7 @@ const Experience = () => {
                       whileHover={{ x: 10 }}
                     >
                       <motion.span
-                        className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"
+                        className="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0"
                         initial={{ scale: 0 }}
                         animate={isInView ? { scale: 1 } : {}}
                         transition={{ delay: index * 0.1 }}

@@ -130,8 +130,8 @@ const About = () => {
                 transition={{ duration: 0.5, delay: 0.5 }}
                 whileHover={{ scale: 1.1 }}
               >
-                <p className="text-4xl font-bold">1+</p>
-                <p className="text-sm">Year Experience</p>
+                <p className="text-4xl font-bold">2+</p>
+                <p className="text-sm">Years Experience</p>
               </motion.div>
             </div>
           </motion.div>
