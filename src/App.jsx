@@ -25,7 +25,7 @@ function AppContent() {
       "ontouchstart" in window || navigator.maxTouchPoints > 0;
 
     const lenis = new Lenis({
-      duration: isTouchDevice ? 0.8 : 1.2,
+      duration: isTouchDevice ? 1.2 : 1.8,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: "vertical",
       gestureOrientation: "vertical",
@@ -33,7 +33,7 @@ function AppContent() {
       wheelMultiplier: isTouchDevice ? 0.8 : 1,
       touchMultiplier: 1.5,
       infinite: false,
-      lerp: isTouchDevice ? 0.15 : 0.1,
+      lerp: isTouchDevice ? 0.1 : 0.075,
     });
 
     let animationFrameId;

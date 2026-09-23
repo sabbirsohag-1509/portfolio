@@ -9,7 +9,7 @@ const WelcomeScreen = ({ onComplete }) => {
     const timer = setTimeout(() => {
       setShowContent(false);
       onComplete();
-    }, 1700);
+    }, 2500);
 
     return () => clearTimeout(timer);
   }, [onComplete]);
@@ -123,7 +123,7 @@ const WelcomeScreen = ({ onComplete }) => {
                     className="h-full bg-linear-to-r from-cyan-300 via-blue-400 to-violet-400"
                     initial={{ width: "0%" }}
                     animate={{ width: "100%" }}
-                    transition={{ duration: 1.35, ease: "easeInOut" }}
+                    transition={{ duration: 2.5, ease: "linear" }}
                   />
                 </div>
               </div>
