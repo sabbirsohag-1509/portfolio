@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../context/ThemeContext";
 import logoShs from "../assets/logo-shs.png";
@@ -8,6 +8,8 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,10 +28,18 @@ const Navbar = () => {
     { name: "Contact", path: "/#contact" },
   ];
 
-  const handleNavClick = (path) => {
+  const handleNavClick = (event, path) => {
     setIsOpen(false);
-    if (path.includes("#")) {
-      const element = document.getElementById(path.split("#")[1]);
+    const hash = path.split("#")[1];
+
+    if (hash) {
+      event.preventDefault();
+      if (location.pathname !== "/") {
+        navigate(path);
+        return;
+      }
+
+      const element = document.getElementById(hash);
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
       }
@@ -81,7 +91,7 @@ const Navbar = () => {
             >
               <motion.a
                 href={link.path}
-                onClick={() => handleNavClick(link.path)}
+                onClick={(event) => handleNavClick(event, link.path)}
                 className="font-medium hover:text-primary transition-colors"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
@@ -204,7 +214,7 @@ const Navbar = () => {
                   >
                     <a
                       href={link.path}
-                      onClick={() => handleNavClick(link.path)}
+                      onClick={(event) => handleNavClick(event, link.path)}
                       className={`font-medium ${
                         theme === "dark"
                           ? "hover:bg-slate-800/50"

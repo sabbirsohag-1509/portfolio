@@ -65,6 +65,21 @@ App will run at:
 
 - http://localhost:5173
 
+### Contact Form Configuration
+
+The contact form uses EmailJS. Copy `.env.example` to `.env.local` and fill in
+the values from your EmailJS dashboard:
+
+```env
+VITE_EMAILJS_SERVICE_ID=your_service_id
+VITE_EMAILJS_TEMPLATE_ID=your_template_id
+VITE_EMAILJS_PUBLIC_KEY=your_public_key
+```
+
+Set the EmailJS template's **To Email** to the inbox that should receive
+messages. For production, add the same variables in the hosting provider's
+environment settings and redeploy the site.
+
 ## Available Scripts
 
 - npm run dev: Start development server

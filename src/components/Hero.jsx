@@ -55,6 +55,14 @@ const Hero = () => {
           : "rgba(99, 102, 241, 0.1)"
       }, transparent 68%)`,
   );
+  const orbOneX = useTransform(smoothPointerX, [0, 100], [-28, 28]);
+  const orbOneY = useTransform(smoothPointerY, [0, 100], [-18, 18]);
+  const orbTwoX = useTransform(smoothPointerX, [0, 100], [24, -24]);
+  const orbTwoY = useTransform(smoothPointerY, [0, 100], [18, -18]);
+  const orbThreeX = useTransform(smoothPointerX, [0, 100], [-16, 16]);
+  const orbThreeY = useTransform(smoothPointerY, [0, 100], [22, -22]);
+  const orbFourX = useTransform(smoothPointerX, [0, 100], [12, -12]);
+  const orbFourY = useTransform(smoothPointerY, [0, 100], [-14, 14]);
 
   const handlePointerMove = (event) => {
     if (event.pointerType === "touch") return;
@@ -254,6 +262,59 @@ const Hero = () => {
         }
         transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
       />
+
+      {/* Layer 2: floating interactive orbs */}
+      {[
+        {
+          className: "left-[12%] top-[20%] h-28 w-28 bg-cyan-400/15",
+          x: orbOneX,
+          y: orbOneY,
+          duration: 16,
+        },
+        {
+          className: "right-[18%] top-[24%] h-36 w-36 bg-fuchsia-500/12",
+          x: orbTwoX,
+          y: orbTwoY,
+          duration: 21,
+        },
+        {
+          className: "left-[42%] bottom-[14%] h-24 w-24 bg-blue-500/12",
+          x: orbThreeX,
+          y: orbThreeY,
+          duration: 18,
+        },
+        {
+          className: "right-[7%] bottom-[18%] h-20 w-20 bg-violet-400/15",
+          x: orbFourX,
+          y: orbFourY,
+          duration: 24,
+        },
+      ].map((orb, index) => (
+        <motion.div
+          key={orb.className}
+          aria-hidden="true"
+          className={`pointer-events-none absolute z-2 rounded-full blur-2xl ${
+            theme === "dark"
+              ? orb.className
+              : orb.className.replace(/\/\d+/, "/8")
+          }`}
+          style={{ x: orb.x, y: orb.y }}
+          animate={
+            shouldReduceMotion
+              ? undefined
+              : {
+                  scale: [0.9, 1.15, 0.95, 0.9],
+                  opacity: [0.35, 0.7, 0.4, 0.35],
+                }
+          }
+          transition={{
+            duration: orb.duration,
+            delay: index * 1.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+      ))}
 
       {/* Layer 3: lightweight floating particles */}
       {particleConfigs.map((particle, index) => (

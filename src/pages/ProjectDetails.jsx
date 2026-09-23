@@ -9,6 +9,35 @@ import {
 } from "react-icons/fa";
 import { projectsData } from "../data/projectsData";
 
+const renderDescription = (description) =>
+  description.split("\n").map((line, index) => {
+    const trimmedLine = line.trim();
+
+    if (!trimmedLine) return <div key={index} className="h-2" />;
+
+    if (trimmedLine.startsWith("**") && trimmedLine.endsWith("**")) {
+      return (
+        <h3 key={index} className="text-lg font-bold mt-5 mb-2">
+          {trimmedLine.replaceAll("**", "")}
+        </h3>
+      );
+    }
+
+    if (trimmedLine.startsWith("• ")) {
+      return (
+        <p key={index} className="mb-2 pl-4 before:content-['•'] before:mr-2">
+          {trimmedLine.slice(2)}
+        </p>
+      );
+    }
+
+    return (
+      <p key={index} className="mb-4">
+        {line}
+      </p>
+    );
+  });
+
 const ProjectDetails = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -91,11 +120,7 @@ const ProjectDetails = () => {
             <div>
               <h2 className="text-2xl font-bold mb-4">About This Project</h2>
               <div className="prose prose-lg max-w-none text-base-content/80">
-                {project.fullDescription.split("\n").map((paragraph, index) => (
-                  <p key={index} className="mb-4">
-                    {paragraph}
-                  </p>
-                ))}
+                {renderDescription(project.fullDescription)}
               </div>
             </div>
 

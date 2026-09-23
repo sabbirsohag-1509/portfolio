@@ -11,9 +11,9 @@ import { useLocation } from "react-router-dom";
 const Home = () => {
   const location = useLocation();
   useEffect(() => {
-    if (location.hash === "#projects") {
+    if (location.hash) {
       setTimeout(() => {
-        const section = document.getElementById("projects");
+        const section = document.getElementById(location.hash.slice(1));
         if (section) {
           section.scrollIntoView({ behavior: "smooth" });
         }

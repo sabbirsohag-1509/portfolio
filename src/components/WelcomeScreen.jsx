@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import logoShs from "../assets/logo-shs.png";
 
 const WelcomeScreen = ({ onComplete }) => {
   const [showContent, setShowContent] = useState(true);
@@ -17,139 +18,117 @@ const WelcomeScreen = ({ onComplete }) => {
     <AnimatePresence>
       {showContent && (
         <motion.div
-          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-linear-to-br from-slate-900 via-purple-900 to-slate-900"
+          className="fixed inset-0 z-50 flex flex-col items-center justify-center overflow-hidden bg-slate-950"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
         >
-          {/* Animated background glow */}
-          <div className="absolute inset-0 overflow-hidden">
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 opacity-30"
+            style={{
+              backgroundImage:
+                "linear-gradient(rgba(56, 189, 248, 0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(139, 92, 246, 0.12) 1px, transparent 1px)",
+              backgroundSize: "48px 48px",
+              maskImage: "linear-gradient(to bottom, black, transparent 85%)",
+            }}
+          />
+          <div aria-hidden="true" className="absolute inset-0 overflow-hidden">
             <motion.div
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-600/30 rounded-full blur-3xl"
+              className="absolute -left-32 top-1/4 h-96 w-96 rounded-full bg-cyan-500/10 blur-3xl"
               animate={{
-                scale: [1, 1.2, 1],
-                opacity: [0.3, 0.5, 0.3],
+                x: [0, 100, 0],
+                y: [0, 40, 0],
+                opacity: [0.25, 0.55, 0.25],
               }}
-              transition={{ duration: 3, repeat: Infinity }}
+              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
             />
             <motion.div
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-pink-600/20 rounded-full blur-3xl"
+              className="absolute -right-32 bottom-1/4 h-96 w-96 rounded-full bg-violet-600/15 blur-3xl"
               animate={{
-                scale: [1.2, 1, 1.2],
-                opacity: [0.2, 0.4, 0.2],
+                x: [0, -80, 0],
+                y: [0, -35, 0],
+                opacity: [0.2, 0.5, 0.2],
               }}
-              transition={{ duration: 4, repeat: Infinity }}
+              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
             />
           </div>
 
-          {/* Content */}
-          <div className="relative z-10 flex flex-col items-center">
-            {/* Spinner */}
-            <motion.div
-              className="relative w-24 h-24 mb-8"
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              {/* Outer ring */}
-              <motion.div
-                className="absolute inset-0 rounded-full border-4 border-transparent border-t-purple-500 border-r-pink-500"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-              />
-              {/* Middle ring */}
-              <motion.div
-                className="absolute inset-2 rounded-full border-4 border-transparent border-b-cyan-400 border-l-purple-400"
-                animate={{ rotate: -360 }}
-                transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
-              />
-              {/* Inner ring */}
-              <motion.div
-                className="absolute inset-4 rounded-full border-4 border-transparent border-t-pink-400 border-r-purple-300"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
-              />
-              {/* Center dot */}
-              <motion.div
-                className="absolute inset-8 rounded-full bg-linear-to-br from-purple-500 to-pink-500"
-                animate={{
-                  scale: [1, 1.2, 1],
-                  opacity: [0.8, 1, 0.8],
-                }}
-                transition={{ duration: 1, repeat: Infinity }}
-              />
-            </motion.div>
+          <motion.div
+            className="relative z-10 w-[min(88vw,30rem)] border border-cyan-300/20 bg-slate-950/70 px-6 py-8 shadow-2xl shadow-cyan-950/40 backdrop-blur-md md:px-10"
+            initial={{ opacity: 0, scale: 0.94, y: 12 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.45, ease: "easeOut" }}
+          >
+            <span className="absolute -left-px -top-px h-8 w-8 border-l-2 border-t-2 border-cyan-300" />
+            <span className="absolute -right-px -top-px h-8 w-8 border-r-2 border-t-2 border-violet-400" />
+            <span className="absolute -bottom-px -left-px h-8 w-8 border-b-2 border-l-2 border-violet-400" />
+            <span className="absolute -bottom-px -right-px h-8 w-8 border-b-2 border-r-2 border-cyan-300" />
 
-            {/* Welcome Text */}
-            <motion.div
-              className="text-center"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-            >
-              <motion.h1
-                className="text-4xl md:text-6xl font-bold mb-4"
-                style={{
-                  background:
-                    "linear-gradient(135deg, #ffffff 0%, #e9d5ff 50%, #c084fc 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
+            <div className="mb-8 flex items-center justify-between text-[10px] uppercase tracking-[0.3em] text-slate-400">
+              <span>SHS / 2026</span>
+              <span className="flex items-center gap-2 text-cyan-300">
+                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-cyan-300" />
+                System online
+              </span>
+            </div>
+
+            <div className="flex flex-col items-center">
+              {/* Orbiting boot mark */}
+              <motion.div
+                className="relative mb-8 h-24 w-24"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
               >
-                Welcome
-              </motion.h1>
+                <div className="absolute inset-0 rounded-full border border-cyan-300/40" />
+                <div className="absolute inset-3 rounded-full border border-violet-400/50 border-dashed" />
+                <motion.span
+                  className="absolute -top-1 left-1/2 h-2 w-2 -translate-x-1/2 rounded-full bg-cyan-300 shadow-[0_0_14px_#67e8f9]"
+                  animate={{ scale: [1, 1.7, 1] }}
+                  transition={{ duration: 1.2, repeat: Infinity }}
+                />
+                <div className="absolute inset-7 flex items-center justify-center rounded-full bg-linear-to-br from-cyan-400 to-violet-500 shadow-[0_0_28px_rgba(34,211,238,0.4)]">
+                  <img
+                    src={logoShs}
+                    alt="SHS logo"
+                    className="h-full w-full rounded-full object-cover p-1"
+                  />
+                </div>
+              </motion.div>
 
               <motion.p
-                className="text-xl md:text-2xl text-purple-300/80 font-light tracking-wider"
+                className="mb-3 text-xs uppercase tracking-[0.4em] text-cyan-300/80"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.6 }}
+                transition={{ delay: 0.25 }}
               >
-                to my
+                Initializing experience
               </motion.p>
-
-              <motion.h2
-                className="text-5xl md:text-7xl font-black mt-2"
-                style={{
-                  background:
-                    "linear-gradient(135deg, #f0abfc 0%, #a855f7 50%, #6366f1 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.8, duration: 0.5 }}
+              <motion.h1
+                className="text-center text-4xl font-black tracking-tight text-white md:text-5xl"
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.35, duration: 0.45 }}
               >
-                Portfolio
-              </motion.h2>
-            </motion.div>
+                Sabbir&apos;s <span className="text-cyan-300">Portfolio</span>
+              </motion.h1>
 
-            {/* Loading dots */}
-            <motion.div
-              className="flex gap-2 mt-8"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1 }}
-            >
-              {[0, 1, 2].map((i) => (
-                <motion.div
-                  key={i}
-                  className="w-3 h-3 rounded-full bg-purple-400"
-                  animate={{
-                    y: [-5, 5, -5],
-                    opacity: [0.5, 1, 0.5],
-                  }}
-                  transition={{
-                    duration: 0.8,
-                    repeat: Infinity,
-                    delay: i * 0.2,
-                  }}
-                />
-              ))}
-            </motion.div>
-          </div>
+              <div className="mt-8 w-full">
+                <div className="mb-2 flex justify-between text-[10px] uppercase tracking-[0.2em] text-slate-500">
+                  <span>Loading modules</span>
+                  <span>100%</span>
+                </div>
+                <div className="h-1 overflow-hidden bg-slate-800">
+                  <motion.div
+                    className="h-full bg-linear-to-r from-cyan-300 via-blue-400 to-violet-400"
+                    initial={{ width: "0%" }}
+                    animate={{ width: "100%" }}
+                    transition={{ duration: 1.35, ease: "easeInOut" }}
+                  />
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </motion.div>
       )}
     </AnimatePresence>
